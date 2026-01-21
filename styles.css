@@ -350,3 +350,28 @@ a{ color:inherit; }
   animation: petalsDrift 22s linear infinite;
   mix-blend-mode: screen;
 }
+/* ===== Background Logo (Ninoukyo Emblem) ===== */
+.bgLogo{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0; /* 桜ノイズより下 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: .06; /* ←重要：かなり薄く */
+}
+
+.bgLogo::before{
+  content:"";
+  width: min(70vw, 700px);
+  height: min(70vw, 700px);
+  background-image: url("./logo-ninoukyo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  filter:
+    blur(.2px)
+    drop-shadow(0 0 40px rgba(255,209,220,.25));
+  transform: rotate(-6deg); /* 少し傾けると雅 */
+}
