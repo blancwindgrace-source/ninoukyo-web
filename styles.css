@@ -479,3 +479,22 @@ dialog.castModal::backdrop{
   color: #dbe3ee;
 }
 .modalContent b{ color: var(--accent2); }
+
+/* ===== Sakura Glow for Character Names ===== */
+.castBtn{
+  color: var(--accent); /* 桜色 */
+  text-shadow:
+    0 0 6px rgba(255, 209, 220, .45),
+    0 0 14px rgba(255, 183, 197, .25);
+  transition: text-shadow .25s ease, color .25s ease;
+}
+
+/* hover / focus 時に少し強く光る */
+.castBtn:hover,
+.castBtn:focus-visible{
+  color: #ffe4ea;
+  text-shadow:
+    0 0 8px rgba(255, 209, 220, .75),
+    0 0 20px rgba(255, 183, 197, .55),
+    0 0 36px rgba(255, 209, 220, .35);
+}
