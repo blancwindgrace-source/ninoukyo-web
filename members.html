@@ -8,7 +8,8 @@
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
-    <div class="bgLogo" aria-hidden="true"></div>
+  <div class="bgLogo" aria-hidden="true"></div>
+
   <header class="topbar">
     <nav class="nav">
       <a class="navItem" href="./index.html">イベント概要</a>
@@ -17,20 +18,27 @@
   </header>
 
   <main class="container">
-<section class="hero rosterSakura">
-  <div class="kicker">ROSTER // 所属メンバー</div>
-  <h1 class="title">所属メンバー一覧</h1>
-  <p class="lead">忍桜郷を彩る住人たちのプロフィールです。</p>
-</section>
+    <section class="hero rosterSakura">
+      <div class="kicker">ROSTER // 所属メンバー</div>
+      <h1 class="title">所属メンバー一覧</h1>
+      <p class="lead">忍桜郷を彩る住人たちのプロフィールです。</p>
+      <p class="muted" style="margin:0;">※名前を押すと写真を表示します</p>
+    </section>
 
-<section class="card rosterSakura">
-  <div class="grid">
+    <section class="card rosterSakura">
+      <div class="grid">
 
         <!-- Member: 白桜 -->
         <article class="member">
           <div class="memberHeader">
             <div>
-              <h3 class="memberName">■名前｜白桜</h3>
+              <h3 class="memberName">
+                ■名前｜
+                <button class="castBtn"
+                        data-name="白桜"
+                        data-reading="びゃくおう"
+                        data-img="./casts/byakuou.jpg">白桜</button>
+              </h3>
               <div class="memberRuby">（びゃくおう）</div>
             </div>
             <div class="badges">
@@ -44,22 +52,26 @@
 迷い込んだ者を元の時代へ還す役目を担う存在である。</div>
         </article>
 
-                <!-- Member: 噺乃 蓮次郎 -->
+        <!-- Member: 噺乃 蓮次郎 -->
         <article class="member">
           <div class="memberHeader">
             <div>
-              <h3 class="memberName">■名前｜噺乃 蓮次郎</h3>
+              <h3 class="memberName">
+                ■名前｜
+                <button class="castBtn"
+                        data-name="噺乃 蓮次郎"
+                        data-reading="はなしの れんじろう"
+                        data-img="./casts/renjiro.jpg">噺乃 蓮次郎</button>
+              </h3>
               <div class="memberRuby">（はなしの れんじろう）</div>
             </div>
             <div class="badges">
               <span class="badge">■種族｜妖</span>
             </div>
           </div>
-
           <div class="memberMeta">
             <div><b>■性格｜</b>口が回り調子はいいが、軽口が多く、つい余計なことをしてしまう</div>
           </div>
-
           <div class="memberBio">忍桜郷に迷い込んだ噺家の妖。
 郷の長である白桜の桜餅をつまみ食いしてしまい、その罰として忍桜郷でタダ働きをさせられている。</div>
         </article>
@@ -68,7 +80,13 @@
         <article class="member">
           <div class="memberHeader">
             <div>
-              <h3 class="memberName">■名前｜澪琉</h3>
+              <h3 class="memberName">
+                ■名前｜
+                <button class="castBtn"
+                        data-name="澪琉"
+                        data-reading="れいりゅう"
+                        data-img="./casts/reiryu.jpg">澪琉</button>
+              </h3>
               <div class="memberRuby">（れいりゅう）</div>
             </div>
             <div class="badges">
@@ -87,7 +105,13 @@
         <article class="member">
           <div class="memberHeader">
             <div>
-              <h3 class="memberName">■名前｜朧</h3>
+              <h3 class="memberName">
+                ■名前｜
+                <button class="castBtn"
+                        data-name="朧"
+                        data-reading="おぼろ"
+                        data-img="./casts/oboro.jpg">朧</button>
+              </h3>
               <div class="memberRuby">（おぼろ）</div>
             </div>
             <div class="badges">
@@ -105,7 +129,13 @@
         <article class="member">
           <div class="memberHeader">
             <div>
-              <h3 class="memberName">■名前｜三椿</h3>
+              <h3 class="memberName">
+                ■名前｜
+                <button class="castBtn"
+                        data-name="三椿"
+                        data-reading="みつば"
+                        data-img="./casts/mitsuba.jpg">三椿</button>
+              </h3>
               <div class="memberRuby">（みつば）</div>
             </div>
             <div class="badges">
@@ -123,7 +153,13 @@
         <article class="member">
           <div class="memberHeader">
             <div>
-              <h3 class="memberName">■名前｜橋子</h3>
+              <h3 class="memberName">
+                ■名前｜
+                <button class="castBtn"
+                        data-name="橋子"
+                        data-reading="きょうこ"
+                        data-img="./casts/kyoko.jpg">橋子</button>
+              </h3>
               <div class="memberRuby">（きょうこ）</div>
             </div>
             <div class="badges">
@@ -141,7 +177,13 @@
         <article class="member">
           <div class="memberHeader">
             <div>
-              <h3 class="memberName">■名前｜零羅</h3>
+              <h3 class="memberName">
+                ■名前｜
+                <button class="castBtn"
+                        data-name="零羅"
+                        data-reading="ゼラ"
+                        data-img="./casts/zera.jpg">零羅</button>
+              </h3>
               <div class="memberRuby">（ゼラ）</div>
             </div>
             <div class="badges">
@@ -160,7 +202,13 @@
         <article class="member">
           <div class="memberHeader">
             <div>
-              <h3 class="memberName">■名前｜雨音</h3>
+              <h3 class="memberName">
+                ■名前｜
+                <button class="castBtn"
+                        data-name="雨音"
+                        data-reading="あまね"
+                        data-img="./casts/amane.jpg">雨音</button>
+              </h3>
               <div class="memberRuby">（あまね）</div>
             </div>
             <div class="badges">
@@ -179,7 +227,13 @@
         <article class="member">
           <div class="memberHeader">
             <div>
-              <h3 class="memberName">■名前｜紫鵺</h3>
+              <h3 class="memberName">
+                ■名前｜
+                <button class="castBtn"
+                        data-name="紫鵺"
+                        data-reading="しや"
+                        data-img="./casts/shiya.jpg">紫鵺</button>
+              </h3>
               <div class="memberRuby">（しや）</div>
             </div>
             <div class="badges">
@@ -197,7 +251,13 @@
         <article class="member">
           <div class="memberHeader">
             <div>
-              <h3 class="memberName">■名前｜雪乃</h3>
+              <h3 class="memberName">
+                ■名前｜
+                <button class="castBtn"
+                        data-name="雪乃"
+                        data-reading="ゆきの"
+                        data-img="./casts/yukino.jpg">雪乃</button>
+              </h3>
               <div class="memberRuby">（ゆきの）</div>
             </div>
             <div class="badges">
@@ -215,7 +275,13 @@
         <article class="member">
           <div class="memberHeader">
             <div>
-              <h3 class="memberName">■名前｜桜唱 綾</h3>
+              <h3 class="memberName">
+                ■名前｜
+                <button class="castBtn"
+                        data-name="桜唱 綾"
+                        data-reading="おうしょうりん"
+                        data-img="./casts/oushourin.jpg">桜唱 綾</button>
+              </h3>
               <div class="memberRuby">（おうしょうりん）</div>
             </div>
             <div class="badges">
@@ -235,7 +301,13 @@
         <article class="member">
           <div class="memberHeader">
             <div>
-              <h3 class="memberName">■名前｜結音愛</h3>
+              <h3 class="memberName">
+                ■名前｜
+                <button class="castBtn"
+                        data-name="結音愛"
+                        data-reading="ゆのあ"
+                        data-img="./casts/yunoa.jpg">結音愛</button>
+              </h3>
               <div class="memberRuby">（ゆのあ）</div>
             </div>
             <div class="badges">
@@ -253,7 +325,13 @@
         <article class="member">
           <div class="memberHeader">
             <div>
-              <h3 class="memberName">■名前｜千歳</h3>
+              <h3 class="memberName">
+                ■名前｜
+                <button class="castBtn"
+                        data-name="千歳"
+                        data-reading="ちとせ"
+                        data-img="./casts/chitose.jpg">千歳</button>
+              </h3>
               <div class="memberRuby">（ちとせ）</div>
             </div>
             <div class="badges">
@@ -272,7 +350,13 @@
         <article class="member">
           <div class="memberHeader">
             <div>
-              <h3 class="memberName">■名前｜蒼月</h3>
+              <h3 class="memberName">
+                ■名前｜
+                <button class="castBtn"
+                        data-name="蒼月"
+                        data-reading="そうげつ"
+                        data-img="./casts/sougetsu.jpg">蒼月</button>
+              </h3>
               <div class="memberRuby">（そうげつ）</div>
             </div>
             <div class="badges">
@@ -291,7 +375,13 @@
         <article class="member">
           <div class="memberHeader">
             <div>
-              <h3 class="memberName">■名前｜晴</h3>
+              <h3 class="memberName">
+                ■名前｜
+                <button class="castBtn"
+                        data-name="晴"
+                        data-reading="はる"
+                        data-img="./casts/haru.jpg">晴</button>
+              </h3>
               <div class="memberRuby">（はる）</div>
             </div>
             <div class="badges">
@@ -310,7 +400,13 @@
         <article class="member">
           <div class="memberHeader">
             <div>
-              <h3 class="memberName">■名前｜星麗</h3>
+              <h3 class="memberName">
+                ■名前｜
+                <button class="castBtn"
+                        data-name="星麗"
+                        data-reading="せいら"
+                        data-img="./casts/seira.jpg">星麗</button>
+              </h3>
               <div class="memberRuby">（せいら）</div>
             </div>
             <div class="badges">
@@ -329,7 +425,13 @@
         <article class="member">
           <div class="memberHeader">
             <div>
-              <h3 class="memberName">■名前｜鬮目</h3>
+              <h3 class="memberName">
+                ■名前｜
+                <button class="castBtn"
+                        data-name="鬮目"
+                        data-reading="くじめ"
+                        data-img="./casts/kujime.jpg">鬮目</button>
+              </h3>
               <div class="memberRuby">（くじめ）</div>
             </div>
             <div class="badges">
@@ -344,11 +446,17 @@
 現代の暮らしが長かったためそれなりに客人の話がわかるがややズレていることがおおい。</div>
         </article>
 
-            <!-- Member: 鬮目 -->
+        <!-- Member: 燕 -->
         <article class="member">
           <div class="memberHeader">
             <div>
-              <h3 class="memberName">■名前｜燕</h3>
+              <h3 class="memberName">
+                ■名前｜
+                <button class="castBtn"
+                        data-name="燕"
+                        data-reading="えん"
+                        data-img="./casts/en.jpg">燕</button>
+              </h3>
               <div class="memberRuby">（えん）</div>
             </div>
             <div class="badges">
@@ -370,15 +478,93 @@
     </section>
   </main>
 
+  <!-- Modal -->
+  <dialog class="castModal" id="castModal">
+    <div class="modalInner">
+      <div class="modalHeader">
+        <div>
+          <h3 class="modalTitle" id="mTitle">—</h3>
+          <div class="modalSub" id="mSub">—</div>
+        </div>
+        <button class="modalClose" id="mClose" type="button">Close</button>
+      </div>
+
+      <div class="modalBody">
+        <div class="modalMedia">
+          <img class="modalImg" id="mImg" src="" alt="">
+        </div>
+
+        <div class="modalContent" id="mContent">
+          <div class="muted">プロフィールを表示します。</div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
   <footer class="footer">
     <div class="footerRow">
       <div>忍桜郷 / Ninoukyo</div>
-      <div class="muted"> <span id="y"></span> Ninoukyo</div>
+      <div class="muted">© <span id="y"></span> Ninoukyo</div>
     </div>
   </footer>
 
   <script>
+    // year
     document.getElementById("y").textContent = new Date().getFullYear();
+
+    // modal
+    const modal = document.getElementById("castModal");
+    const mTitle = document.getElementById("mTitle");
+    const mSub = document.getElementById("mSub");
+    const mImg = document.getElementById("mImg");
+    const mContent = document.getElementById("mContent");
+    const mClose = document.getElementById("mClose");
+
+    // open
+    document.querySelectorAll(".castBtn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const name = btn.dataset.name || btn.textContent.trim();
+        const reading = btn.dataset.reading || "";
+        const img = btn.dataset.img || "";
+
+        mTitle.textContent = `■名前｜${name}`;
+        mSub.textContent = reading ? `（${reading}）` : "";
+
+        if (img) {
+          mImg.src = img;
+          mImg.alt = name;
+          mImg.style.display = "block";
+        } else {
+          mImg.removeAttribute("src");
+          mImg.alt = "";
+          mImg.style.display = "none";
+        }
+
+        // show profile from the same card
+        const card = btn.closest(".member");
+        if (card) {
+          const meta = card.querySelector(".memberMeta")?.innerHTML || "";
+          const bio = card.querySelector(".memberBio")?.innerHTML || "";
+          mContent.innerHTML = `${meta}${bio ? `<div style="margin-top:10px">${bio}</div>` : ""}`;
+        } else {
+          mContent.innerHTML = `<div class="muted">プロフィールを表示します。</div>`;
+        }
+
+        modal.showModal();
+      });
+    });
+
+    // close by button
+    mClose.addEventListener("click", () => modal.close());
+
+    // close by outside click (backdrop)
+    modal.addEventListener("click", (e) => {
+      const rect = modal.getBoundingClientRect();
+      const inDialog =
+        rect.top <= e.clientY && e.clientY <= rect.bottom &&
+        rect.left <= e.clientX && e.clientX <= rect.right;
+      if (!inDialog) modal.close();
+    });
   </script>
 </body>
 </html>
