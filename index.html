@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>忍桜郷 | Ninoukyo</title>
+  <meta name="description" content="VRC和風RPイベント 忍桜郷 公式サイト" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav">
+      <a class="navItem active" href="./index.html">イベント概要</a>
+      <a class="navItem" href="./members.html">所属メンバー一覧</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero nightSakura">
+      <div class="petals" aria-hidden="true"></div>
+
+      <div class="heroInner">
+        <div class="kicker">NINOUKYO // 夜桜の郷 受付端末</div>
+        <h1 class="title">忍桜郷（にんおうきょう）</h1>
+        <p class="lead">
+          忍と妖が共に暮らす幻想の郷。迷い込んだ人を迎え、もてなし、そして送り届ける――
+          和風RPイベントです。
+        </p>
+
+        <div class="heroActions">
+          <a class="btnPrimary" href="./members.html">所属メンバーを見る</a>
+          <a class="btnGhost" href="#overview">概要へ</a>
+        </div>
+
+        <div class="heroChips">
+          <span class="chip">和風RP</span>
+          <span class="chip">接客</span>
+          <span class="chip">舞台演目</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="overview" class="card">
+      <h2 class="sectionTitle">イベント概要</h2>
+      <div class="divider"></div>
+      <ul class="list">
+        <li><b>開催</b>：毎週火曜 22:00 JST（目安）</li>
+        <li><b>形式</b>：和風RP / 接客 / 舞台演目</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2 class="sectionTitle">参加の流れ（例）</h2>
+      <div class="divider"></div>
+      <ol class="list">
+        <li>Req-In（招待リクエスト）→受付</li>
+        <li>桜並木の案内 → 屋敷へ</li>
+        <li>舞台演目 / 歓談 → 見送り</li>
+      </ol>
+      <p class="muted">※当日の運用（抽選/受付方法）は告知ポストに準拠</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footerRow">
+      <div>忍桜郷 / Ninoukyo</div>
+      <div class="muted"> <span id="y"></span> Ninoukyo</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
