@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>所属メンバー一覧 | 忍桜郷</title>
+  <meta name="description" content="忍桜郷 所属メンバー一覧" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav">
+      <a class="navItem" href="./index.html">イベント概要</a>
+      <a class="navItem active" href="./members.html">所属メンバー一覧</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="kicker">ROSTER // 所属メンバー</div>
+      <h1 class="title">所属メンバー一覧</h1>
+      <p class="lead">忍桜郷を彩る住人たちのプロフィールです。</p>
+    </section>
+
+    <section class="card">
+      <div class="grid">
+        <!-- Member: 噺乃 蓮次郎 -->
+        <article class="member">
+          <div class="memberHeader">
+            <div>
+              <h3 class="memberName">■名前｜噺乃 蓮次郎</h3>
+              <div class="memberRuby">（はなしの れんじろう）</div>
+            </div>
+            <div class="badges">
+              <span class="badge">■種族｜妖</span>
+            </div>
+          </div>
+
+          <div class="memberMeta">
+            <div><b>■性格｜</b>口が回り調子はいいが、軽口が多く、つい余計なことをしてしまう</div>
+          </div>
+
+          <div class="memberBio">忍桜郷に迷い込んだ噺家の妖。
+郷の長である白桜の桜餅をつまみ食いしてしまい、その罰として忍桜郷でタダ働きをさせられている。</div>
+        </article>
+
+        <!-- ここに同じ形式でメンバーを増やしていけます -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footerRow">
+      <div>忍桜郷 / Ninoukyo</div>
+      <div class="muted">© <span id="y"></span> Ninoukyo</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
