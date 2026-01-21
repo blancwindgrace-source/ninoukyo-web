@@ -507,57 +507,6 @@ dialog.castModal::backdrop{
     0 0 18px rgba(255, 183, 197, .35);
 }
 
-/* ===== Mission Block (調査指令) ===== */
-.missionBlock{
-  position: relative;
-  overflow: hidden;
-}
-
-.missionActions{
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 18px;
-}
-
-.missionBtn{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 18px;
-  border-radius: 16px;
-  font-size: 14px;
-  text-decoration: none;
-  border: 1px solid var(--line);
-  transition: all .25s ease;
-  letter-spacing: .4px;
-}
-
-/* メインボタン（公式X） */
-.missionBtn.primary{
-  color: var(--accent);
-  border-color: rgba(255,209,220,.55);
-  background: rgba(255,209,220,.10);
-  box-shadow: 0 0 18px rgba(255,209,220,.12);
-}
-.missionBtn.primary:hover{
-  box-shadow:
-    0 0 0 2px rgba(255,209,220,.25),
-    0 0 30px rgba(255,209,220,.35);
-  color: #ffe4ea;
-}
-
-/* サブボタン（ハッシュタグ） */
-.missionBtn.ghost{
-  color: var(--fg);
-  background: rgba(255,255,255,.02);
-}
-.missionBtn.ghost:hover{
-  border-color: rgba(255,209,220,.45);
-  color: var(--accent);
-  box-shadow: 0 0 0 2px rgba(255,209,220,.18);
-}
-
 /* ===== JOIN MISSION Panel ===== */
 .panel.join{
   margin-top: 48px;
