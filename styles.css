@@ -596,3 +596,33 @@ dialog.castModal::backdrop{
     inset 0 0 0 1px rgba(255,255,255,.1),
     0 0 28px rgba(255,183,197,.45);
 }
+
+/* ===== Gloss Layer (小さな用語レイヤー) ===== */
+.glossLayer{
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.02);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #d6deea;
+  line-height: 1.8;
+}
+
+.glossTag{
+  font-size: 11px;
+  letter-spacing: .16em;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,183,197,.45);
+  background: rgba(255,183,197,.10);
+  color: var(--accent);
+  text-shadow: 0 0 10px rgba(255,183,197,.18);
+}
+
+.glossText{
+  font-size: 13px;
+  color: #cfd6e4;
+}
