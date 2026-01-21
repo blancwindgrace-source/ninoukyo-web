@@ -375,3 +375,107 @@ a{ color:inherit; }
     drop-shadow(0 0 40px rgba(255,209,220,.25));
   transform: rotate(-6deg); /* 少し傾けると雅 */
 }
+
+/* ===== Modal (dialog) ===== */
+.castBtn{
+  all: unset;
+  cursor: pointer;
+  color: var(--fg);
+  text-decoration: none;
+  display: inline-block;
+}
+.castBtn:hover{
+  text-shadow: 0 0 12px rgba(255,209,220,.22);
+}
+.castBtn:focus-visible{
+  outline: 2px solid rgba(255,209,220,.45);
+  outline-offset: 3px;
+  border-radius: 10px;
+}
+
+dialog.castModal{
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 0;
+  width: min(920px, calc(100vw - 28px));
+  background: rgba(8,10,14,.92);
+  color: var(--fg);
+  box-shadow: 0 25px 90px rgba(0,0,0,.55);
+}
+dialog.castModal::backdrop{
+  background: rgba(0,0,0,.55);
+  backdrop-filter: blur(3px);
+}
+
+.modalInner{
+  position: relative;
+  overflow: hidden;
+}
+
+.modalHeader{
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.modalTitle{
+  margin: 0;
+  font-size: 16px;
+}
+.modalSub{
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.modalClose{
+  all: unset;
+  cursor: pointer;
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.03);
+}
+.modalClose:hover{
+  border-color: rgba(255,209,220,.45);
+  box-shadow: 0 0 0 2px rgba(255,209,220,.14);
+}
+
+.modalBody{
+  padding: 14px 16px 16px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+@media (min-width: 800px){
+  .modalBody{
+    grid-template-columns: 360px 1fr;
+    gap: 16px;
+  }
+}
+
+.modalMedia{
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255,255,255,.02);
+}
+
+.modalImg{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.modalContent{
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 16px;
+  padding: 12px;
+  background: rgba(255,255,255,.02);
+  line-height: 1.85;
+  color: #dbe3ee;
+}
+.modalContent b{ color: var(--accent2); }
