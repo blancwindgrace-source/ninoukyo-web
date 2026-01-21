@@ -498,3 +498,11 @@ dialog.castModal::backdrop{
     0 0 20px rgba(255, 183, 197, .55),
     0 0 36px rgba(255, 209, 220, .35);
 }
+
+/* モーダル内の名前も同じ発光にしたい場合 */
+.modalTitle{
+  color: var(--accent);
+  text-shadow:
+    0 0 8px rgba(255, 209, 220, .55),
+    0 0 18px rgba(255, 183, 197, .35);
+}
