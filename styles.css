@@ -660,3 +660,45 @@ dialog.castModal::backdrop{
   font-size: 13px;
   color: #cfd6e4;
 }
+
+/* ===== X Account Button (Cast / Night Sakura) ===== */
+.xBtn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+  padding: 6px 10px;
+  font-size: 11px;
+  letter-spacing: .08em;
+  border-radius: 999px;
+  text-decoration: none;
+
+  color: #cfd6e4;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(10,14,20,.35);
+
+  transition: all .25s ease;
+}
+
+.xBtn:hover{
+  color: #ffe4ea;
+  border-color: rgba(255,183,197,.65);
+  box-shadow:
+    0 0 0 2px rgba(255,183,197,.18),
+    0 0 18px rgba(255,183,197,.35);
+}
+
+/* ===== Modal X Link ===== */
+.modalLinks{
+  margin-top: 6px;
+}
+
+.modalLinks a{
+  font-size: 12px;
+  text-decoration: none;
+  color: var(--accent);
+}
+
+.modalLinks a:hover{
+  text-shadow: 0 0 12px rgba(255,183,197,.45);
+}
