@@ -144,7 +144,7 @@ button,input,a { touch-action:manipulation; }
 .footerLinks { display:flex; gap:20px; margin-left:auto; font-size:10px; }
 .footerLinks a:hover { color:var(--rose); }
 .footerInner>small { color:#9f8e9a; font-size:9px; letter-spacing:.06em; }
-/* All forty biographies stay in HTML; JavaScript adds search and dialogs. */
+/* All biographies stay in HTML; JavaScript adds search and dialogs. */
 .rosterHero { background:radial-gradient(ellipse at 75% 20%,#332532,var(--ink) 70%); color:#f4e7ec; overflow:hidden; }
 .rosterIntro { display:flex; align-items:center; justify-content:space-between; position:relative; padding-block:35px 58px; }
 .breadcrumb { display:inline-flex; gap:13px; font-size:10px; color:#baa5b4; margin-bottom:38px; }
