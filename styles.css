@@ -109,6 +109,14 @@ button,input,a { touch-action:manipulation; }
 .visitSteps p { margin-top:14px; font-size:12px; line-height:2; color:#bdb0b9; }
 .visitSteps .textLink { margin-top:10px; font-size:11px; }
 .visitNote { margin-top:32px; color:#a795a0; font-size:10px; line-height:1.9; }
+.faqSection { padding-top:72px; }
+.faqInner { display:grid; grid-template-columns:.7fr 1.3fr; gap:70px; padding-bottom:64px; border-bottom:1px solid var(--line); }
+.faqHeading h2 { font-family:var(--serif); font-size:30px; font-weight:500; letter-spacing:.08em; line-height:1.7; margin-top:15px; }
+.faqList { margin:0; min-width:0; }
+.faqItem + .faqItem { margin-top:25px; padding-top:25px; border-top:1px solid var(--line); }
+.faqItem dt { display:flex; align-items:baseline; gap:12px; font-family:var(--serif); font-size:18px; line-height:1.9; font-weight:500; }
+.faqItem dt>span { flex:0 0 18px; color:var(--rose-deep); font-family:var(--sans); font-size:13px; }
+.faqItem dd { margin:12px 0 0 30px; color:#6e5c66; font-size:13px; line-height:2.1; }
 .residentsSection { padding-block:88px 65px; }
 .featuredGrid { display:grid; grid-template-columns:repeat(3,1fr); gap:31px; margin-top:37px; }
 .featuredPhoto { position:relative; aspect-ratio:4/4.4; overflow:hidden; background:#e9e1d9; }
@@ -261,6 +269,8 @@ button,input,a { touch-action:manipulation; }
   .sectionIntro { margin-top:19px; font-size:11px; } .visitSteps { grid-template-columns:1fr; gap:27px; margin-top:26px; }
   .visitSteps li { padding-top:18px; } .stepNo { top:14px; right:10px; font-size:40px; } .visitSteps h3 { font-size:18px; margin-top:17px; } .visitSteps p { margin-top:12px; font-size:12px; } .visitSteps .textLink { margin-top:5px; }
   .visitNote { margin-top:27px; line-height:2; } .residentsSection { padding:55px 0 40px; }
+  .faqSection { padding-top:48px; } .faqInner { grid-template-columns:1fr; gap:26px; padding-bottom:42px; }
+  .faqHeading h2 { font-size:28px; margin-top:12px; } .faqItem dt { font-size:17px; } .faqItem dd { font-size:12px; }
   .residentsSection .sectionHeading .textLink { margin-top:18px; font-size:11px; } .featuredGrid { gap:13px; margin-top:27px; }
   .featuredPhoto { aspect-ratio:2/3.3; } .featureArrow { width:24px; height:24px; bottom:8px; right:8px; font-size:15px; }
   .featuredCaption { display:block; padding:13px 0; } .featuredCaption small { font-size:9px; } .featuredCaption h3 { font-size:23px; } .featuredCaption>span { display:block; margin-top:6px; font-size:9px; }

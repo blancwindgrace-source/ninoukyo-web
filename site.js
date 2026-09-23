@@ -13,7 +13,7 @@
   const filters = [...document.querySelectorAll('[data-filter]')];
   const count = document.getElementById('resultCount');
   const empty = document.getElementById('emptyState');
-  let selectedFilter = 'all';
+  let selectedFilter = 'present';
 
   // Hiragana/katakana and full-width/half-width characters match alike.
   const normalize = (value) => value.normalize('NFKC').toLocaleLowerCase('ja')
@@ -159,7 +159,7 @@
     if (linkedCard && linkedCard.classList.contains('member') && typeof modal.showModal === 'function') {
       if (linkedCard.hidden) {
         search.value = '';
-        selectedFilter = 'all';
+        selectedFilter = linkedCard.dataset.state;
         filterMembers();
       }
       openProfile(linkedCard, linkedCard.querySelector('.castBtn'));
