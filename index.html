@@ -1,107 +1,120 @@
 <!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>忍桜郷 | Ninoukyo</title>
-  <meta name="description" content="VRC和風RPイベント 忍桜郷 公式サイト" />
-  <link rel="stylesheet" href="./styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#19161c">
+  <title>忍桜郷｜桜の向こうで、ひと夜の縁を。</title>
+  <meta name="description" content="忍と妖が共に暮らす幻想の郷。VRChatの和風RPイベント「忍桜郷」の公式サイト。イベント概要・参加の流れ・住人たちの物語をご案内します。">
+  <link rel="canonical" href="https://ninoukyo-web.vercel.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="忍桜郷">
+  <meta property="og:title" content="忍桜郷｜桜の向こうで、ひと夜の縁を。">
+  <meta property="og:description" content="忍と妖が共に暮らす幻想の郷。VRChatの和風RPイベント「忍桜郷」の公式サイト。イベント概要・参加の流れ・住人たちの物語をご案内します。">
+  <meta property="og:url" content="https://ninoukyo-web.vercel.app/">
+  <meta property="og:image" content="https://ninoukyo-web.vercel.app/assets/site-cover.jpg">
+  <meta property="og:image:alt" content="忍桜郷の夜桜と住人の一景">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="./logo-ninoukyo.png" type="image/png">
+  <link rel="preload" href="./assets/fonts/ninoukyo-serif.woff" as="font" type="font/woff" crossorigin>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./site.js" defer></script>
 </head>
-<body>
-    <div class="bgLogo" aria-hidden="true"></div>
-  <header class="topbar">
-    <nav class="nav">
-      <a class="navItem active" href="./index.html">イベント概要</a>
-      <a class="navItem" href="./members.html">所属メンバー一覧</a>
-    </nav>
+<body class="homePage">
+<a class="skipLink" href="#main">本文へ移動</a>
+  <header class="siteHeader">
+    <div class="headerInner">
+      <a class="brand" href="./index.html" aria-label="忍桜郷 トップページ">
+        <img src="./logo-ninoukyo.png" alt="" width="42" height="42">
+        <span class="brandName">忍桜郷<small>NINOUKYO</small></span>
+      </a>
+      <nav class="mainNav" aria-label="メインナビゲーション">
+        <a href="./index.html#about" aria-current="page">忍桜郷とは</a>
+        <a href="./index.html#visit">訪れ方</a>
+        <a href="./members.html" >郷の住人</a>
+      </nav>
+      <a class="headerX" href="https://x.com/Ninoukyo_VRC" target="_blank" rel="noopener noreferrer">公式X<span aria-hidden="true">↗</span><span class="srOnly">（新しいタブ）</span></a>
+    </div>
   </header>
+  <main id="main">
+    <section class="hero" aria-labelledby="heroTitle">
+      <img class="heroImage" src="./assets/hero.webp" alt="夜桜に包まれた忍桜郷と夜霧丸" width="2200" height="1238" fetchpriority="high">
+      <div class="heroShade" aria-hidden="true"></div>
+      <div class="heroContent wrap">
+        <p class="eyebrow light"><span></span>VRChat 和風ロールプレイイベント</p>
+        <h1 id="heroTitle">忍桜郷</h1>
+        <p class="heroReading">にんおうきょう</p>
+        <p class="heroPoem">桜の向こうで、<br>ひと夜の縁を。</p>
+        <p class="heroDescription">忍と妖が共に暮らす、幻想の郷。<br>迷い込んだあなたを、今宵もお迎えします。</p>
+        <div class="heroActions"><a class="button rose" href="#visit">郷への訪れ方<span aria-hidden="true">↗</span></a><a class="textLink lightLink" href="./members.html">住人たちに出会う<span aria-hidden="true">→</span></a></div>
+      </div>
+      <p class="heroVertical" aria-hidden="true">ひと夜の縁を、桜に結ぶ。</p>
+      <div class="heroBottom wrap"><a href="#about" class="scrollHint">SCROLL TO EXPLORE<span aria-hidden="true">↓</span></a><span class="photoCredit">郷の一景 ─ 夜霧丸</span></div>
+    </section>
 
-  <main class="container">
-    <section class="hero nightSakura">
-      <div class="petals" aria-hidden="true"></div>
+    <section class="eventStrip" aria-label="イベントの基本情報">
+      <div class="wrap stripGrid">
+        <div class="schedule"><span class="stripLabel">開かれる夜</span><p>毎週火曜日 <strong>22:00</strong><small>JST・目安</small></p></div>
+        <div><span class="stripLabel">この郷で過ごす時間</span><p>和風RP <span class="stripDot">・</span> 接客 <span class="stripDot">・</span> 舞台演目</p></div>
+        <a class="stripNotice" href="https://x.com/Ninoukyo_VRC" target="_blank" rel="noopener noreferrer"><span><span class="stripLabel">開催・受付の最新情報</span><span>公式Xのお知らせへ</span></span><span class="circleArrow" aria-hidden="true">↗</span><span class="srOnly">（新しいタブ）</span></a>
+      </div>
+    </section>
 
-      <div class="heroInner">
-        <div class="kicker">NINOUKYO // 夜桜の郷 受付端末</div>
-        <h1 class="title">忍桜郷（にんおうきょう）</h1>
-        <p class="lead">
-          忍と妖が共に暮らす幻想の郷。迷い込んだ人を迎え、もてなし、そして送り届ける――
-          和風RPイベントです。
-        </p>
-
-        <div class="heroActions">
-          <a class="btnPrimary" href="./members.html">所属メンバーを見る</a>
-          <a class="btnGhost" href="#overview">概要へ</a>
+    <section id="about" class="aboutSection paperSection">
+      <div class="wrap aboutGrid">
+        <div class="aboutVisual">
+          <span class="verticalLabel" aria-hidden="true">桜舞う、ひと夜の物語。</span>
+          <img src="./assets/casts/mitsuba-full.webp" alt="桜の庭で過ごす三椿" width="1920" height="1080" loading="lazy" decoding="async">
+          <span class="photoLabel">三椿と、桜の庭。</span>
         </div>
-
-        <div class="heroChips">
-          <span class="chip">和風RP</span>
-          <span class="chip">接客</span>
-          <span class="chip">舞台演目</span>
+        <div class="aboutText">
+          <p class="eyebrow">ABOUT NINOUKYO</p>
+          <h2>忍と妖の暮らす、<br>夜桜の郷。</h2>
+          <div class="smallRule" aria-hidden="true"></div>
+          <p>時代や世界を越えて、<br>迷い人が辿り着く場所――忍桜郷。</p>
+          <p>ここでは、忍と妖が共に暮らしています。<br>言葉を交わし、舞台に心を寄せ、<br>いつもと少し違う夜をお過ごしください。</p>
+          <p>迷い込んだ人を迎え、もてなし、<br>そして、元の世界へ送り届ける。<br>そんなひと夜の物語を紡ぐ、和風RPイベントです。</p>
+          <a class="textLink" href="./members.html">この郷に暮らす住人たち<span aria-hidden="true">→</span></a>
         </div>
       </div>
     </section>
 
-<div class="glossLayer" role="note" aria-label="忍桜郷について">
-  <span class="glossTag">用語</span>
-  <span class="glossText">忍桜郷とは、時代や世界を越えて迷い人が辿り着く幻想の郷です。</span>
-</div>
-    
-    <section id="overview" class="card">
-      <h2 class="sectionTitle">イベント概要</h2>
-      <div class="divider"></div>
-      <ul class="list">
-        <li><b>開催</b>：毎週火曜 22:00 JST（目安）</li>
-        <li><b>形式</b>：和風RP / 接客 / 舞台演目</li>
-      </ul>
+    <section id="visit" class="visitSection">
+      <div class="wrap">
+        <div class="sectionHeading"><div><p class="eyebrow light">YOUR FIRST VISIT</p><h2>郷への道しるべ</h2></div><p class="sectionIntro">初めての方も、久しぶりの方も。<br>お越しになる前に、当日の告知をご確認ください。</p></div>
+        <ol class="visitSteps">
+          <li><span class="stepNo" aria-hidden="true">一</span><span class="stepEnglish">BEFORE YOU VISIT</span><h3>当日の告知を確かめる</h3><p>開催日時・受付方法・参加条件は、公式Xでご案内しています。最新の告知をご確認ください。</p><a class="textLink lightLink" href="https://x.com/Ninoukyo_VRC" target="_blank" rel="noopener noreferrer">最新のお知らせ<span aria-hidden="true">↗</span><span class="srOnly">（新しいタブ）</span></a></li>
+          <li><span class="stepNo" aria-hidden="true">二</span><span class="stepEnglish">FIND YOUR WAY</span><h3>受付から、桜並木へ</h3><p>当日の案内に沿ってReq-In（招待リクエスト）をお送りください。受付を経て、桜並木から屋敷へご案内します。</p></li>
+          <li><span class="stepNo" aria-hidden="true">三</span><span class="stepEnglish">A NIGHT TO REMEMBER</span><h3>語らい、演舞、そして見送り</h3><p>住人たちとの語らいや舞台演目をお楽しみください。ひと夜の終わりには、皆さまをお見送りします。</p></li>
+        </ol>
+        <p class="visitNote">※上記は参加の流れの一例です。抽選・受付方法など、当日の運用は公式Xの告知に準じます。</p>
+      </div>
     </section>
 
-    <section class="card">
-      <h2 class="sectionTitle">参加の流れ（例）</h2>
-      <div class="divider"></div>
-      <ol class="list">
-        <li>Req-In（招待リクエスト）→受付</li>
-        <li>桜並木の案内 → 屋敷へ</li>
-        <li>舞台演目 / 歓談 → 見送り</li>
-      </ol>
-      <p class="muted">※当日の運用（抽選/受付方法）は告知ポストに準拠</p>
+    <section class="residentsSection paperSection" aria-labelledby="residentsTitle">
+      <div class="wrap">
+        <div class="sectionHeading"><div><p class="eyebrow">PEOPLE OF NINOUKYO</p><h2 id="residentsTitle">この郷で、出会う人。</h2></div><a class="textLink" href="./members.html">すべての住人を見る<span aria-hidden="true">→</span></a></div>
+        <div class="featuredGrid">
+          <a class="featuredMember" href="./members.html#member-reiryu"><div class="featuredPhoto"><img src="./assets/casts/reiryu-thumb.webp" alt="澪琉" style="object-position:50% 32%" loading="lazy" decoding="async" width="720" height="960"><span class="featureArrow" aria-hidden="true">↗</span></div><div class="featuredCaption"><div><small>れいりゅう</small><h3>澪琉</h3></div><span>狐</span></div></a>
+          <a class="featuredMember" href="./members.html#member-mitsuba"><div class="featuredPhoto"><img src="./assets/casts/mitsuba-thumb.webp" alt="三椿" style="object-position:72% 50%" loading="lazy" decoding="async" width="720" height="960"><span class="featureArrow" aria-hidden="true">↗</span></div><div class="featuredCaption"><div><small>みつば</small><h3>三椿</h3></div><span>妖（狸）</span></div></a>
+          <a class="featuredMember" href="./members.html#member-murakumo"><div class="featuredPhoto"><img src="./assets/casts/murakumo-thumb.webp" alt="叢雲" style="object-position:52% 50%" loading="lazy" decoding="async" width="720" height="960"><span class="featureArrow" aria-hidden="true">↗</span></div><div class="featuredCaption"><div><small>むらくも</small><h3>叢雲</h3></div><span>妖（大蛇）</span></div></a>
+        </div>
+        <p class="residentsNote">名前をたどると、それぞれの物語がひらきます。</p>
+      </div>
     </section>
-
-<section class="panel join missionBlock" id="join" aria-labelledby="join-title">
-  <h2 id="join-title">調査指令</h2>
-  <p>
-    あなたの記録が必要です。<br>
-    忍桜郷に関する情報は、以下より確認・共有してください。
-  </p>
-
-  <div class="cta">
-    <a class="missionBtn solid"
-       href="https://x.com/Ninoukyo_VRC"
-       target="_blank"
-       rel="noopener">
-      X Account
-    </a>
-
-    <a class="missionBtn outline"
-       href="https://x.com/hashtag/VRCにんおうきょう"
-       target="_blank"
-       rel="noopener">
-      #VRCにんおうきょう
-    </a>
-  </div>
-</section>
-
-
+    <section class="invitationSection" aria-labelledby="invitationTitle">
+      <img src="./logo-ninoukyo.png" class="invitationEmblem" alt="" width="128" height="128" loading="lazy">
+      <div class="wrap invitationInner"><p class="eyebrow light">UNTIL WE MEET AGAIN</p><h2 id="invitationTitle">次の夜も、<br class="mobileOnly">桜の下で。</h2><p>開催のお知らせや郷の便りは、公式Xにて。<br>皆さまが紡いだ思い出も、ハッシュタグからご覧いただけます。</p><div class="invitationActions"><a class="button rose" href="https://x.com/Ninoukyo_VRC" target="_blank" rel="noopener noreferrer">公式Xを見る<span aria-hidden="true">↗</span><span class="srOnly">（新しいタブ）</span></a><a class="button outline" href="https://x.com/hashtag/VRCにんおうきょう" target="_blank" rel="noopener noreferrer">#VRCにんおうきょう<span aria-hidden="true">↗</span><span class="srOnly">（新しいタブ）</span></a></div></div>
+    </section>
   </main>
-
-  <footer class="footer">
-    <div class="footerRow">
-      <div>忍桜郷 / Ninoukyo</div>
-      <div class="muted"> <span id="y"></span> Ninoukyo</div>
+<footer class="siteFooter">
+    <div class="footerInner">
+      <a class="brand footerBrand" href="./index.html"><img src="./logo-ninoukyo.png" alt="" width="44" height="44"><span class="brandName">忍桜郷<small>NINOUKYO</small></span></a>
+      <p>また、桜の向こうで。</p>
+      <div class="footerLinks"><a href="./index.html">イベント概要</a><a href="./members.html">郷の住人</a><a href="https://x.com/Ninoukyo_VRC" target="_blank" rel="noopener noreferrer">公式X ↗<span class="srOnly">（新しいタブ）</span></a></div>
+      <small>© <span data-year>2026</span> Ninoukyo</small>
     </div>
   </footer>
-
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>

@@ -1,1233 +1,770 @@
 <!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>所属メンバー一覧 | 忍桜郷</title>
-  <meta name="description" content="忍桜郷 所属メンバー一覧" />
-  <link rel="stylesheet" href="./styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#19161c">
+  <title>郷の住人｜忍桜郷</title>
+  <meta name="description" content="忍桜郷を彩る住人たち。写真とプロフィールから、それぞれの物語をご覧ください。名前・読み・種族での検索にも対応しています。">
+  <link rel="canonical" href="https://ninoukyo-web.vercel.app/members.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="忍桜郷">
+  <meta property="og:title" content="郷の住人｜忍桜郷">
+  <meta property="og:description" content="忍桜郷を彩る住人たち。写真とプロフィールから、それぞれの物語をご覧ください。名前・読み・種族での検索にも対応しています。">
+  <meta property="og:url" content="https://ninoukyo-web.vercel.app/members.html">
+  <meta property="og:image" content="https://ninoukyo-web.vercel.app/assets/site-cover.jpg">
+  <meta property="og:image:alt" content="忍桜郷の夜桜と住人の一景">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="./logo-ninoukyo.png" type="image/png">
+  <link rel="preload" href="./assets/fonts/ninoukyo-serif.woff" as="font" type="font/woff" crossorigin>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./site.js" defer></script>
 </head>
-<body>
-  <div class="bgLogo" aria-hidden="true"></div>
-
-  <header class="topbar">
-    <nav class="nav">
-      <a class="navItem" href="./index.html">イベント概要</a>
-      <a class="navItem active" href="./members.html">所属メンバー一覧</a>
-    </nav>
+<body class="membersPage">
+<a class="skipLink" href="#main">本文へ移動</a>
+  <header class="siteHeader">
+    <div class="headerInner">
+      <a class="brand" href="./index.html" aria-label="忍桜郷 トップページ">
+        <img src="./logo-ninoukyo.png" alt="" width="42" height="42">
+        <span class="brandName">忍桜郷<small>NINOUKYO</small></span>
+      </a>
+      <nav class="mainNav" aria-label="メインナビゲーション">
+        <a href="./index.html#about" >忍桜郷とは</a>
+        <a href="./index.html#visit">訪れ方</a>
+        <a href="./members.html" aria-current="page">郷の住人</a>
+      </nav>
+      <a class="headerX" href="https://x.com/Ninoukyo_VRC" target="_blank" rel="noopener noreferrer">公式X<span aria-hidden="true">↗</span><span class="srOnly">（新しいタブ）</span></a>
+    </div>
   </header>
-
-  <main class="container">
-    <section class="hero rosterSakura">
-      <div class="kicker">ROSTER // 所属メンバー</div>
-      <h1 class="title">所属メンバー一覧</h1>
-      <p class="lead">忍桜郷を彩る住人たちのプロフィールです。</p>
-      <p class="muted" style="margin:0;">※名前を押すと写真を表示します</p>
+  <main id="main">
+    <section class="rosterHero">
+      <div class="wrap rosterIntro"><div><a href="./index.html" class="breadcrumb">忍桜郷 <span aria-hidden="true">/</span> 郷の住人</a><p class="eyebrow light">PEOPLE OF NINOUKYO</p><h1>郷に息づく、<br>それぞれの物語。</h1><p class="rosterLead">言葉を交わすその前に、少しだけ。<br>忍桜郷を彩る住人たちをご紹介します。</p></div><img src="./logo-ninoukyo.png" alt="" width="200" height="200" class="rosterEmblem"></div>
     </section>
-
-    <section class="card rosterSakura">
-      <div class="grid">
-
-        <!-- Member: 白桜 -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="白桜"
-                        data-reading="びゃくおう"
-                        data-img="./casts/byakuou.png"
-                        data-x="https://x.com/Blanc_VRC">白桜</button>
-              </h3>
-              <div class="memberRuby">（びゃくおう）</div>
-            </div>
-            <div class="badges">
-              <span class="badge">■種族｜妖</span>
-              <!-- XボタンはJSで自動挿入 -->
-            </div>
-          </div>
-          <div class="memberMeta">
+    <section class="rosterSection paperSection" aria-labelledby="rosterTitle">
+      <div class="wrap">
+        <div class="rosterTop"><h2 id="rosterTitle">住人一覧<small>RESIDENTS</small></h2><div class="searchBox jsOnly"><label class="srOnly" for="memberSearch">名前・読み・種族で住人を探す</label><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 5 5"></path></svg><input id="memberSearch" type="search" placeholder="名前・読み・種族で探す" autocomplete="off" enterkeyhint="search"><button type="button" id="clearSearch" aria-label="検索をクリア" hidden>×</button></div></div>
+        <div class="filterRow jsOnly"><div class="memberFilters" role="group" aria-label="住人の表示を切り替える"><button type="button" data-filter="all" aria-pressed="true">すべて <span data-count="all"></span></button><button type="button" data-filter="present" aria-pressed="false">郷の住人 <span data-count="present"></span></button><button type="button" data-filter="memory" aria-pressed="false">思い出の住人 <span data-count="memory"></span></button></div><p class="resultCount" id="resultCount" role="status" aria-live="polite" aria-atomic="true"></p></div>
+        <p class="rosterHelp">写真や名前から、詳しいプロフィールをご覧いただけます。</p>
+        <div class="memberGrid" id="memberGrid">
+          <article class="member" id="member-byakuou" data-state="present">
+            <a class="memberPhoto openProfile noPhoto" href="#member-byakuou" data-profile="byakuou" aria-label="白桜のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"><span class="unpublished">写真未掲載</span></span><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">びゃくおう</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="#member-byakuou" data-profile="byakuou" data-name="白桜" data-reading="びゃくおう" data-img="" data-original-img="./casts/byakuou.png" data-x="https://x.com/Blanc_VRC">白桜</a></h3>
+              <div class="badges"><span class="badge">妖</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>寛容で穏やかだが、あまり表に出てくることはない</div>
           </div>
-          <div class="memberBio">遥か昔より忍桜郷を治める妖。忍と妖が共存する忍桜郷の長として郷を守っている。
+              <div class="memberBio">遥か昔より忍桜郷を治める妖。忍と妖が共存する忍桜郷の長として郷を守っている。
 迷い込んだ者を元の時代へ還す役目を担う存在である。</div>
-        </article>
-
-        <!-- Member: 噺乃 蓮次郎 -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="噺乃 蓮次郎"
-                        data-reading="はなしの れんじろう"
-                        data-img="./casts/renjiro.png"
-                        data-x="https://x.com/Blanc_VRC">噺乃 蓮次郎</button>
-              </h3>
-              <div class="memberRuby">（はなしの れんじろう）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="byakuou" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/Blanc_VRC" target="_blank" rel="noopener noreferrer" aria-label="白桜のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜妖</span>
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-renjiro" data-state="present">
+            <a class="memberPhoto openProfile " href="./assets/casts/renjiro-full.webp" data-profile="renjiro" aria-label="噺乃 蓮次郎のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"></span><img src="./assets/casts/renjiro-thumb.webp" alt="噺乃 蓮次郎の写真" loading="lazy" decoding="async" width="720" height="960" style="object-position:42% 50%"><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">はなしの れんじろう</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="./assets/casts/renjiro-full.webp" data-profile="renjiro" data-name="噺乃 蓮次郎" data-reading="はなしの れんじろう" data-img="./assets/casts/renjiro-full.webp" data-original-img="./casts/renjiro.png" data-x="https://x.com/Blanc_VRC">噺乃 蓮次郎</a></h3>
+              <div class="badges"><span class="badge">妖</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>口が回り調子はいいが、軽口が多く、つい余計なことをしてしまう</div>
           </div>
-          <div class="memberBio">忍桜郷に迷い込んだ噺家の妖。<br>
+              <div class="memberBio">忍桜郷に迷い込んだ噺家の妖。<br>
 郷の長である白桜の桜餅をつまみ食いしてしまい、その罰として忍桜郷でタダ働きをさせられている。</div>
-        </article>
-
-        <!-- Member: 澪琉 -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="澪琉"
-                        data-reading="れいりゅう"
-                        data-img="./casts/reiryu.png"
-                        data-x="https://x.com/Farsia_Lenis">澪琉</button>
-              </h3>
-              <div class="memberRuby">（れいりゅう）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="renjiro" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/Blanc_VRC" target="_blank" rel="noopener noreferrer" aria-label="噺乃 蓮次郎のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜狐</span>
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-reiryu" data-state="present">
+            <a class="memberPhoto openProfile " href="./assets/casts/reiryu-full.webp" data-profile="reiryu" aria-label="澪琉のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"></span><img src="./assets/casts/reiryu-thumb.webp" alt="澪琉の写真" loading="lazy" decoding="async" width="720" height="960" style="object-position:50% 38%"><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">れいりゅう</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="./assets/casts/reiryu-full.webp" data-profile="reiryu" data-name="澪琉" data-reading="れいりゅう" data-img="./assets/casts/reiryu-full.webp" data-original-img="./casts/reiryu.png" data-x="https://x.com/Farsia_Lenis">澪琉</a></h3>
+              <div class="badges"><span class="badge">狐</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>近寄り難い雰囲気を纏った､武に生きる狐</div>
           </div>
-          <div class="memberBio">遥か昔､この地に迷い込んだ後､忍桜郷の門番として､客人や無粋な客人の対応を主軸に過ごしている｡<br>
+              <div class="memberBio">遥か昔､この地に迷い込んだ後､忍桜郷の門番として､客人や無粋な客人の対応を主軸に過ごしている｡<br>
 半身を現世に残して来たため､迷い人から現世の話を聞きつつ､縁があれば半身に自らの場所を伝えて欲しいと話し､
 何時か元の力を取り戻し､現世に還るべく日々を過ごしている｡</div>
-        </article>
-
-        <!-- Member: 朧 -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="朧"
-                        data-reading="おぼろ"
-                        data-img="./casts/oboro.png"
-                        data-x="https://x.com/afuafurororo">朧</button>
-              </h3>
-              <div class="memberRuby">（おぼろ）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="reiryu" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/Farsia_Lenis" target="_blank" rel="noopener noreferrer" aria-label="澪琉のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜黒孤</span>
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-oboro" data-state="present">
+            <a class="memberPhoto openProfile noPhoto" href="#member-oboro" data-profile="oboro" aria-label="朧のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"><span class="unpublished">写真未掲載</span></span><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">おぼろ</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="#member-oboro" data-profile="oboro" data-name="朧" data-reading="おぼろ" data-img="" data-original-img="./casts/oboro.png" data-x="https://x.com/afuafurororo">朧</a></h3>
+              <div class="badges"><span class="badge">黒孤</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>穏やか</div>
           </div>
-          <div class="memberBio">白桜に魅せられ家臣になり、忍桜郷の忍びとして警護の任につく。<br>
+              <div class="memberBio">白桜に魅せられ家臣になり、忍桜郷の忍びとして警護の任につく。<br>
 忍桜郷に住まうもの全てに対して敬意を示しており、基本的には様付けの敬称で呼んでいる。</div>
-        </article>
-
-        <!-- Member: 三椿 -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="三椿"
-                        data-reading="みつば"
-                        data-img="./casts/mitsuba.png"
-                        data-x="https://x.com/kiriya_hizuki">三椿</button>
-              </h3>
-              <div class="memberRuby">（みつば）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="oboro" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/afuafurororo" target="_blank" rel="noopener noreferrer" aria-label="朧のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜妖（狸）</span>
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-mitsuba" data-state="present">
+            <a class="memberPhoto openProfile " href="./assets/casts/mitsuba-full.webp" data-profile="mitsuba" aria-label="三椿のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"></span><img src="./assets/casts/mitsuba-thumb.webp" alt="三椿の写真" loading="lazy" decoding="async" width="720" height="960" style="object-position:72% 50%"><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">みつば</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="./assets/casts/mitsuba-full.webp" data-profile="mitsuba" data-name="三椿" data-reading="みつば" data-img="./assets/casts/mitsuba-full.webp" data-original-img="./casts/mitsuba.png" data-x="https://x.com/kiriya_hizuki">三椿</a></h3>
+              <div class="badges"><span class="badge">妖（狸）</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>明るく話すことが大好き</div>
           </div>
-          <div class="memberBio">忍桜郷の住人と話しながら、桜の木の下でお花見をするのが大好き。<br>
+              <div class="memberBio">忍桜郷の住人と話しながら、桜の木の下でお花見をするのが大好き。<br>
 甘味が好きだが、匂いや味が強すぎるとおなかを壊すことがある。三色団子が好き。</div>
-        </article>
-
-        <!-- Member: 橋子 -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="橋子"
-                        data-reading="きょうこ"
-                        data-img="./casts/kyoko.png"
-                        data-x="https://x.com/utakata_hana">橋子</button>
-              </h3>
-              <div class="memberRuby">（きょうこ）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="mitsuba" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/kiriya_hizuki" target="_blank" rel="noopener noreferrer" aria-label="三椿のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜妖（『橋姫』の娘）</span>
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-kyoko" data-state="memory">
+            <a class="memberPhoto openProfile " href="./assets/casts/kyoko-full.webp" data-profile="kyoko" aria-label="橋子のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"></span><img src="./assets/casts/kyoko-thumb.webp" alt="橋子の写真" loading="lazy" decoding="async" width="720" height="960" style="object-position:50% 38%"><span class="memoryBadge">思い出の住人</span><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">きょうこ</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="./assets/casts/kyoko-full.webp" data-profile="kyoko" data-name="橋子" data-reading="きょうこ" data-img="./assets/casts/kyoko-full.webp" data-original-img="./casts/kyoko.png" data-x="https://x.com/utakata_hana">橋子</a></h3>
+              <div class="badges"><span class="badge">妖（『橋姫』の娘）</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>明るくおませで好奇心旺盛</div>
           </div>
-          <div class="memberBio">水まんじゅうと歌謡をこなよく愛する、妖の娘。<br>
+              <div class="memberBio">水まんじゅうと歌謡をこなよく愛する、妖の娘。<br>
 披露する歌は旅の者や迷い人から学んだりすることもあり、種類が豊富。<br>
                       <div class="farewell">もう、この郷で出会うことはない</div></div>
-        </article>
-
-        <!-- Member: 零羅 -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="零羅"
-                        data-reading="ゼラ"
-                        data-img="./casts/zera.png"
-                        data-x="https://x.com/sui_Bracky">零羅</button>
-              </h3>
-              <div class="memberRuby">（ゼラ）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="kyoko" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/utakata_hana" target="_blank" rel="noopener noreferrer" aria-label="橋子のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜送り狼</span>
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-zera" data-state="memory">
+            <a class="memberPhoto openProfile " href="./assets/casts/zera-full.webp" data-profile="zera" aria-label="零羅のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"></span><img src="./assets/casts/zera-thumb.webp" alt="零羅の写真" loading="lazy" decoding="async" width="720" height="960" style="object-position:50% 38%"><span class="memoryBadge">思い出の住人</span><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">ゼラ</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="./assets/casts/zera-full.webp" data-profile="zera" data-name="零羅" data-reading="ゼラ" data-img="./assets/casts/zera-full.webp" data-original-img="./casts/zera.png" data-x="https://x.com/sui_Bracky">零羅</a></h3>
+              <div class="badges"><span class="badge">送り狼</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>しっかり者だが、中身はポンコツでイタズラ好き</div>
           </div>
-          <div class="memberBio">忍桜郷に迷い込んだ者を帰す役割を担ってる送り狼姉妹の姉。<br>
+              <div class="memberBio">忍桜郷に迷い込んだ者を帰す役割を担ってる送り狼姉妹の姉。<br>
 普段は忍桜郷の者と話したり、安全のために郷を見守っている。<br>
 忍桜郷という場所は大切なため、郷を守るために日々帰りの門をせっせと繋いで守っている。
               <div class="farewell">もう、この郷で出会うことはない</div>
           </div>
-        </article>
-
-        <!-- Member: 雨音 -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="雨音"
-                        data-reading="あまね"
-                        data-img="./casts/amane.png"
-                        data-x="https://x.com/sui_Bracky">雨音</button>
-              </h3>
-              <div class="memberRuby">（あまね）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="zera" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/sui_Bracky" target="_blank" rel="noopener noreferrer" aria-label="零羅のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜送り狼</span>
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-amane" data-state="memory">
+            <a class="memberPhoto openProfile " href="./assets/casts/amane-full.webp" data-profile="amane" aria-label="雨音のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"></span><img src="./assets/casts/amane-thumb.webp" alt="雨音の写真" loading="lazy" decoding="async" width="720" height="960" style="object-position:50% 38%"><span class="memoryBadge">思い出の住人</span><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">あまね</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="./assets/casts/amane-full.webp" data-profile="amane" data-name="雨音" data-reading="あまね" data-img="./assets/casts/amane-full.webp" data-original-img="./casts/amane.png" data-x="https://x.com/sui_Bracky">雨音</a></h3>
+              <div class="badges"><span class="badge">送り狼</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>明るいアホの子、姉同様イタズラ好き</div>
           </div>
-          <div class="memberBio">忍桜郷に迷い込んだ者を帰す役割を担ってる送り狼姉妹の妹。<br>
+              <div class="memberBio">忍桜郷に迷い込んだ者を帰す役割を担ってる送り狼姉妹の妹。<br>
 普段は忍桜郷の者と遊んだり、安全のために郷を見守っている。<br>
 忍桜郷という場所は大切なため、郷を守るために日々帰りの門をせっせと繋いで守っている。
             <div class="farewell">もう、この郷で出会うことはない</div>
           </div>
-        </article>
-
-        <!-- Member: 紫鵺 -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="紫鵺"
-                        data-reading="しや"
-                        data-img="./casts/shiya.png"
-                        data-x="https://x.com/Shiratama_vr">紫鵺</button>
-              </h3>
-              <div class="memberRuby">（しや）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="amane" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/sui_Bracky" target="_blank" rel="noopener noreferrer" aria-label="雨音のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜半妖（狐）</span>
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-shiya" data-state="present">
+            <a class="memberPhoto openProfile " href="./assets/casts/shiya-full.webp" data-profile="shiya" aria-label="紫鵺のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"></span><img src="./assets/casts/shiya-thumb.webp" alt="紫鵺の写真" loading="lazy" decoding="async" width="720" height="960" style="object-position:50% 38%"><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">しや</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="./assets/casts/shiya-full.webp" data-profile="shiya" data-name="紫鵺" data-reading="しや" data-img="./assets/casts/shiya-full.webp" data-original-img="./casts/shiya.png" data-x="https://x.com/Shiratama_vr">紫鵺</a></h3>
+              <div class="badges"><span class="badge">半妖（狐）</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>一応真面目ではあるが好奇心旺盛で間抜けな一面を持つ。</div>
           </div>
-          <div class="memberBio">病弱であったが故、村の食物不足の際に生贄にされてしまったが手裏剣と狐の妖に導かれ忍桜郷にたどり着いた。<br>
+              <div class="memberBio">病弱であったが故、村の食物不足の際に生贄にされてしまったが手裏剣と狐の妖に導かれ忍桜郷にたどり着いた。<br>
 普段は忍桜郷の甘味処巡りをしている大の甘党で好物はぜんざい。</div>
-        </article>
-
-                <!-- Member: げんえい -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="厳詠"
-                        data-reading="genei"
-                        data-img="./casts/genei.png"
-                        data-x="https://x.com/TenmuVRC_BLUE">厳詠</button>
-              </h3>
-              <div class="memberRuby">（げんえい）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="shiya" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/Shiratama_vr" target="_blank" rel="noopener noreferrer" aria-label="紫鵺のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜人間</span>
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-genei" data-state="present">
+            <a class="memberPhoto openProfile " href="./assets/casts/genei-full.webp" data-profile="genei" aria-label="厳詠のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"></span><img src="./assets/casts/genei-thumb.webp" alt="厳詠の写真" loading="lazy" decoding="async" width="720" height="960" style="object-position:50% 38%"><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">げんえい</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="./assets/casts/genei-full.webp" data-profile="genei" data-name="厳詠" data-reading="げんえい" data-img="./assets/casts/genei-full.webp" data-original-img="./casts/genei.png" data-x="https://x.com/TenmuVRC_BLUE">厳詠</a></h3>
+              <div class="badges"><span class="badge">人間</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>好奇心旺盛なご老人</div>
           </div>
-          <div class="memberBio">吟遊詩人として旅をしていて、忍桜郷にたどりついた。<br>
+              <div class="memberBio">吟遊詩人として旅をしていて、忍桜郷にたどりついた。<br>
 この地では、様々な妖や人、時代を超えて迷い込む者がいることを知り
 忍桜郷の酒もたいそう気に入ったのも居座っている。<br>
 最近は酒を振舞って行う宴会が減ったことを残念に思ってもいる。</div>
-        </article>
-
-        <!-- Member: 雪乃 -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="雪乃"
-                        data-reading="ゆきの"
-                        data-img="./casts/yukino.png"
-                        data-x="https://x.com/TenmuVRC_BLUE">雪乃</button>
-              </h3>
-              <div class="memberRuby">（ゆきの）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="genei" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/TenmuVRC_BLUE" target="_blank" rel="noopener noreferrer" aria-label="厳詠のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜妖狐</span>
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-yukino" data-state="present">
+            <a class="memberPhoto openProfile " href="./assets/casts/yukino-full.webp" data-profile="yukino" aria-label="雪乃のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"></span><img src="./assets/casts/yukino-thumb.webp" alt="雪乃の写真" loading="lazy" decoding="async" width="720" height="960" style="object-position:50% 38%"><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">ゆきの</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="./assets/casts/yukino-full.webp" data-profile="yukino" data-name="雪乃" data-reading="ゆきの" data-img="./assets/casts/yukino-full.webp" data-original-img="./casts/yukino.png" data-x="https://x.com/TenmuVRC_BLUE">雪乃</a></h3>
+              <div class="badges"><span class="badge">妖狐</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>温厚</div>
           </div>
-          <div class="memberBio">昔幼い頃雪山で狩りをしていた際何やら光るものを見つけ（手裏剣）触れた際に忍桜郷へと迷い混んでしまった。<br>
+              <div class="memberBio">昔幼い頃雪山で狩りをしていた際何やら光るものを見つけ（手裏剣）触れた際に忍桜郷へと迷い混んでしまった。<br>
 雪乃がいつも大事に持っている刀、雪影は両親から譲り受けた代々伝わる家宝である。</div>
-        </article>
-
-        <!-- Member: 桜唱 綾 -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="桜唱 綾"
-                        data-reading="おうしょうりん"
-                        data-img="./casts/oushourin.png"
-                        data-x="https://x.com/u63svrc">桜唱 綾</button>
-              </h3>
-              <div class="memberRuby">（おうしょうりん）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="yukino" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/TenmuVRC_BLUE" target="_blank" rel="noopener noreferrer" aria-label="雪乃のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜竜種</span>
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-oushourin" data-state="present">
+            <a class="memberPhoto openProfile " href="./assets/casts/oushourin-full.webp" data-profile="oushourin" aria-label="桜唱 綾のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"></span><img src="./assets/casts/oushourin-thumb.webp" alt="桜唱 綾の写真" loading="lazy" decoding="async" width="720" height="960" style="object-position:49% 42%"><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">おうしょうりん</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="./assets/casts/oushourin-full.webp" data-profile="oushourin" data-name="桜唱 綾" data-reading="おうしょうりん" data-img="./assets/casts/oushourin-full.webp" data-original-img="./casts/oushourin.png" data-x="https://x.com/u63svrc">桜唱 綾</a></h3>
+              <div class="badges"><span class="badge">竜種</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>おっとり</div>
           </div>
-          <div class="memberBio">かつては山奥に生きる銀竜草。<br>
+              <div class="memberBio">かつては山奥に生きる銀竜草。<br>
 近代化の環境変化により枯れ落ちた際、花弁が桜の花びらに触れたことで桜の龍となってこの忍桜郷で目覚めた。<br>
 前世の記憶を引き継いでおり山にいた頃に通りかかった旅人の話を覚えている。<br>
 歌う事と空を飛ぶのが好き。隙あらばいつの間にか癖で歌っている。</div>
-        </article>
-
-        <!-- Member: 結音愛 -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="結音愛"
-                        data-reading="ゆのあ"
-                        data-img="./casts/yunoa.png"
-                        data-x="https://x.com/tyan0_tsubaki">結音愛</button>
-              </h3>
-              <div class="memberRuby">（ゆのあ）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="oushourin" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/u63svrc" target="_blank" rel="noopener noreferrer" aria-label="桜唱 綾のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜狐族</span>
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-yunoa" data-state="present">
+            <a class="memberPhoto openProfile noPhoto" href="#member-yunoa" data-profile="yunoa" aria-label="結音愛のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"><span class="unpublished">写真未掲載</span></span><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">ゆのあ</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="#member-yunoa" data-profile="yunoa" data-name="結音愛" data-reading="ゆのあ" data-img="" data-original-img="./casts/yunoa.png" data-x="https://x.com/tyan0_tsubaki">結音愛</a></h3>
+              <div class="badges"><span class="badge">狐族</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>人懐っこい</div>
           </div>
-          <div class="memberBio">元は山に暮らしていたが、久々に里へ降りた際、妖や人が迷い込んだ人間を元の世界へ送り返す様子に興味を持つ。<br>
+              <div class="memberBio">元は山に暮らしていたが、久々に里へ降りた際、妖や人が迷い込んだ人間を元の世界へ送り返す様子に興味を持つ。<br>
 白桜に願い出て忍桜郷での暮らしを許され、今は人間のことを学びながら、さまざまな者と語らう日々を楽しんでいる。</div>
-        </article>
-
-        <!-- Member: 千歳 -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="千歳"
-                        data-reading="ちとせ"
-                        data-img="./casts/chitose.png"
-                        data-x="https://x.com/totoroknight21">千歳</button>
-              </h3>
-              <div class="memberRuby">（ちとせ）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="yunoa" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/tyan0_tsubaki" target="_blank" rel="noopener noreferrer" aria-label="結音愛のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜妖狐</span>
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-chitose" data-state="present">
+            <a class="memberPhoto openProfile " href="./assets/casts/chitose-full.webp" data-profile="chitose" aria-label="千歳のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"></span><img src="./assets/casts/chitose-thumb.webp" alt="千歳の写真" loading="lazy" decoding="async" width="720" height="960" style="object-position:42% 50%"><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">ちとせ</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="./assets/casts/chitose-full.webp" data-profile="chitose" data-name="千歳" data-reading="ちとせ" data-img="./assets/casts/chitose-full.webp" data-original-img="./casts/chitose.png" data-x="https://x.com/totoroknight21">千歳</a></h3>
+              <div class="badges"><span class="badge">妖狐</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>献身的だが冗談を真に受けがち</div>
           </div>
-          <div class="memberBio">かつて狐夜御が信奉されていた廃村寸前の村で、彼女の帰りを待ち侘びながら独りで神社を守っていたところへ、
+              <div class="memberBio">かつて狐夜御が信奉されていた廃村寸前の村で、彼女の帰りを待ち侘びながら独りで神社を守っていたところへ、
 先に忍桜郷へ移住していた本人からの誘いを受け、忍桜郷で狐夜御に仕えるようになった。<br>
 あまり人と接する機会がなかったこともあり、他者の趣味嗜好に強い興味を示す時がある。</div>
-        </article>
-
-        <!-- Member: 蒼月 -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="蒼月"
-                        data-reading="そうげつ"
-                        data-img="./casts/sougetsu.png"
-                        data-x="https://x.com/Kouya_Akatsuki">蒼月</button>
-              </h3>
-              <div class="memberRuby">（そうげつ）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="chitose" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/totoroknight21" target="_blank" rel="noopener noreferrer" aria-label="千歳のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜妖狐</span>
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-sougetsu" data-state="present">
+            <a class="memberPhoto openProfile noPhoto" href="#member-sougetsu" data-profile="sougetsu" aria-label="蒼月のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"><span class="unpublished">写真未掲載</span></span><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">そうげつ</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="#member-sougetsu" data-profile="sougetsu" data-name="蒼月" data-reading="そうげつ" data-img="" data-original-img="./casts/sougetsu.png" data-x="https://x.com/Kouya_Akatsuki">蒼月</a></h3>
+              <div class="badges"><span class="badge">妖狐</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>温厚／一部冷徹な面あり</div>
           </div>
-          <div class="memberBio">元は1の旅狐だったが、ひょんなことで忍桜郷に迷い込んだ際に白桜に拾われた。<br>
+              <div class="memberBio">元は1の旅狐だったが、ひょんなことで忍桜郷に迷い込んだ際に白桜に拾われた。<br>
 居つかせてもらっている恩を返すため、域内の掃除や、迷い込んできた者の案内をするようになった。<br>
 忍として動くこともあり、郷の皆のことを見守っている。</div>
-        </article>
-
-        <!-- Member: 晴 -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="晴"
-                        data-reading="はる"
-                        data-img="./casts/haru.png"
-                        data-x="https://x.com/SashaSan_VRC">晴</button>
-              </h3>
-              <div class="memberRuby">（はる）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="sougetsu" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/Kouya_Akatsuki" target="_blank" rel="noopener noreferrer" aria-label="蒼月のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜座敷童</span>
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-haru" data-state="present">
+            <a class="memberPhoto openProfile noPhoto" href="#member-haru" data-profile="haru" aria-label="晴のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"><span class="unpublished">写真未掲載</span></span><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">はる</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="#member-haru" data-profile="haru" data-name="晴" data-reading="はる" data-img="" data-original-img="./casts/haru.png" data-x="https://x.com/SashaSan_VRC">晴</a></h3>
+              <div class="badges"><span class="badge">座敷童</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>子供っぽく、元気ないたずらっ子</div>
           </div>
-          <div class="memberBio">良家の座敷童として家を守っていたが、家が火事で燃えてしまい行くあてが無くなった。<br>
+              <div class="memberBio">良家の座敷童として家を守っていたが、家が火事で燃えてしまい行くあてが無くなった。<br>
 次の居場所を探す旅の末、忍桜郷に辿り着く。<br>
 忍桜郷は居心地がよく、庭で鬼ごっこをしている晴の姿がよく目撃されているとか。</div>
-        </article>
-
-        <!-- Member: 星麗 -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="星麗"
-                        data-reading="せいら"
-                        data-img="./casts/seira.png"
-                        data-x="https://x.com/HosizumiSase">星麗</button>
-              </h3>
-              <div class="memberRuby">（せいら）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="haru" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/SashaSan_VRC" target="_blank" rel="noopener noreferrer" aria-label="晴のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜忍</span>
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-seira" data-state="present">
+            <a class="memberPhoto openProfile " href="./assets/casts/seira-full.webp" data-profile="seira" aria-label="星麗のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"></span><img src="./assets/casts/seira-thumb.webp" alt="星麗の写真" loading="lazy" decoding="async" width="720" height="960" style="object-position:50% 38%"><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">せいら</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="./assets/casts/seira-full.webp" data-profile="seira" data-name="星麗" data-reading="せいら" data-img="./assets/casts/seira-full.webp" data-original-img="./casts/seira.png" data-x="https://x.com/HosizumiSase">星麗</a></h3>
+              <div class="badges"><span class="badge">忍</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>底抜けに明るい元気くのいち</div>
           </div>
-          <div class="memberBio">忍桜郷に迷い込んで憧れの忍者たちの実在に帰ることも忘れて居着いてしまった現代忍者っ子。<br>
+              <div class="memberBio">忍桜郷に迷い込んで憧れの忍者たちの実在に帰ることも忘れて居着いてしまった現代忍者っ子。<br>
 憧れだけではなくそれなりにまじめに修行を行っているのか多少の忍術が使えるようになってきた<br>
 現代っ子なので語尾のござるはキャラ付けでござる。ニンニン</div>
-        </article>
-
-        <!-- Member: 鬮目 -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="鬮目"
-                        data-reading="くじめ"
-                        data-img="./casts/kujime.png"
-                        data-x="https://x.com/_k1bh">鬮目</button>
-              </h3>
-              <div class="memberRuby">（くじめ）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="seira" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/HosizumiSase" target="_blank" rel="noopener noreferrer" aria-label="星麗のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜人食い妖怪</span>
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-kujime" data-state="present">
+            <a class="memberPhoto openProfile " href="./assets/casts/kujime-full.webp" data-profile="kujime" aria-label="鬮目のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"></span><img src="./assets/casts/kujime-thumb.webp" alt="鬮目の写真" loading="lazy" decoding="async" width="720" height="960" style="object-position:50% 38%"><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">くじめ</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="./assets/casts/kujime-full.webp" data-profile="kujime" data-name="鬮目" data-reading="くじめ" data-img="./assets/casts/kujime-full.webp" data-original-img="./casts/kujime.png" data-x="https://x.com/_k1bh">鬮目</a></h3>
+              <div class="badges"><span class="badge">人食い妖怪</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>喋り好きのサボり魔</div>
           </div>
-          <div class="memberBio">死に場所を探して彷徨っていたときに忍桜郷に迷い込んだ。<br>
+              <div class="memberBio">死に場所を探して彷徨っていたときに忍桜郷に迷い込んだ。<br>
 タダ飯食らいだったが客人をもてなすことを強制され仕方なく従っている（本心では白桜に恩義を感じている）。<br>
 現代の暮らしが長かったためそれなりに客人の話がわかるがややズレていることがおおい。</div>
-        </article>
-
-                <!-- Member: 千里 -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="千里"
-                        data-reading="せんり"
-                        data-img="./casts/senri.png"
-                        data-x="https://x.com/_k1bh">千里</button>
-              </h3>
-              <div class="memberRuby">（せんり）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="kujime" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/_k1bh" target="_blank" rel="noopener noreferrer" aria-label="鬮目のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜鬼(獄卒)</span>
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-senri" data-state="present">
+            <a class="memberPhoto openProfile " href="./assets/casts/senri-full.webp" data-profile="senri" aria-label="千里のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"></span><img src="./assets/casts/senri-thumb.webp" alt="千里の写真" loading="lazy" decoding="async" width="720" height="960" style="object-position:50% 38%"><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">せんり</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="./assets/casts/senri-full.webp" data-profile="senri" data-name="千里" data-reading="せんり" data-img="./assets/casts/senri-full.webp" data-original-img="./casts/senri.png" data-x="https://x.com/_k1bh">千里</a></h3>
+              <div class="badges"><span class="badge">鬼(獄卒)</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>おっちょこちょいの生真面目</div>
           </div>
-          <div class="memberBio">閻魔大王の補佐として働いていた鬼<br>
+              <div class="memberBio">閻魔大王の補佐として働いていた鬼<br>
 うっかり大事な死者名簿(閻魔帳)を現世に落としてしまい探しに来たとき忍桜郷に迷い込んだ<br>
 閻魔帳自体は既に鬮目に拾われており、あとは帰るだけ…なのだが地獄に帰るための方法が分からなくなってしまったためそのまま忍桜郷に留まっている</div>
-        </article>
-
-        <!-- Member: 燕 -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="燕"
-                        data-reading="えん"
-                        data-img="./casts/en.png"
-                        data-x="https://x.com/shine_wlw">燕</button>
-              </h3>
-              <div class="memberRuby">（えん）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="senri" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/_k1bh" target="_blank" rel="noopener noreferrer" aria-label="千里のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜人</span>
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-en" data-state="present">
+            <a class="memberPhoto openProfile " href="./assets/casts/en-full.webp" data-profile="en" aria-label="燕のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"></span><img src="./assets/casts/en-thumb.webp" alt="燕の写真" loading="lazy" decoding="async" width="720" height="960" style="object-position:49% 40%"><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">えん</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="./assets/casts/en-full.webp" data-profile="en" data-name="燕" data-reading="えん" data-img="./assets/casts/en-full.webp" data-original-img="./casts/en.png" data-x="https://x.com/shine_wlw">燕</a></h3>
+              <div class="badges"><span class="badge">人</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>好々爺</div>
           </div>
-          <div class="memberBio">剣の鍛錬をしていたところ突如迷い込んだ。<br>
+              <div class="memberBio">剣の鍛錬をしていたところ突如迷い込んだ。<br>
 茶と風流を楽しむ初老の男。<br>
 とある大名に仕えていたようだが語りたがらない。<br>
 絆の大事さを理解しており、他者との繋がりを大事にしている。<br>
 暇さえあれば茶を飲むか剣を振っていたようだ。
 そしてそれは忍桜の郷でも変わらない。</div>
-        </article>
-
-        <!-- Member: 待宵 -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="待宵"
-                        data-reading="まつよい"
-                        data-img="./casts/matuyoi.png"
-                        data-x="https://x.com/mnx_vrc">待宵</button>
-              </h3>
-              <div class="memberRuby">（まつよい）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="en" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/shine_wlw" target="_blank" rel="noopener noreferrer" aria-label="燕のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜人・忍</span>
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-matuyoi" data-state="present">
+            <a class="memberPhoto openProfile " href="./assets/casts/matuyoi-full.webp" data-profile="matuyoi" aria-label="待宵のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"></span><img src="./assets/casts/matuyoi-thumb.webp" alt="待宵の写真" loading="lazy" decoding="async" width="720" height="960" style="object-position:48% 50%"><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">まつよい</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="./assets/casts/matuyoi-full.webp" data-profile="matuyoi" data-name="待宵" data-reading="まつよい" data-img="./assets/casts/matuyoi-full.webp" data-original-img="./casts/matuyoi.png" data-x="https://x.com/mnx_vrc">待宵</a></h3>
+              <div class="badges"><span class="badge">人・忍</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>冷静だが負けず嫌いな忍見習い</div>
           </div>
-          <div class="memberBio">かつてはスパイとして送り込まれた敵国の忍だったが、正体を見破った白桜の提案で忍として忍桜郷に仕えることとなった。<br>
+              <div class="memberBio">かつてはスパイとして送り込まれた敵国の忍だったが、正体を見破った白桜の提案で忍として忍桜郷に仕えることとなった。<br>
 普段は里や周辺の見回りと称して人目につかない場所で昼寝をしていることが多い。<br>
 忍の経験としてはまだ日が浅く修行中の身である。</div>
-        </article>
-
-        <!-- Member: 秋華 -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="秋華"
-                        data-reading="しゅうか"
-                        data-img="./casts/syuka.png"
-                        data-x="https://x.com/ponmizu227">秋華</button>
-              </h3>
-              <div class="memberRuby">（しゅうか）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="matuyoi" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/mnx_vrc" target="_blank" rel="noopener noreferrer" aria-label="待宵のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜妖狐</span>
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-syuka" data-state="memory">
+            <a class="memberPhoto openProfile " href="./assets/casts/syuka-full.webp" data-profile="syuka" aria-label="秋華のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"></span><img src="./assets/casts/syuka-thumb.webp" alt="秋華の写真" loading="lazy" decoding="async" width="720" height="960" style="object-position:50% 38%"><span class="memoryBadge">思い出の住人</span><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">しゅうか</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="./assets/casts/syuka-full.webp" data-profile="syuka" data-name="秋華" data-reading="しゅうか" data-img="./assets/casts/syuka-full.webp" data-original-img="./casts/syuka.png" data-x="https://x.com/ponmizu227">秋華</a></h3>
+              <div class="badges"><span class="badge">妖狐</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>優しくて、お話が大好き</div>
           </div>
-          <div class="memberBio">まだ幼く、記憶がおぼろげな頃から忍桜郷にいる。<br>
+              <div class="memberBio">まだ幼く、記憶がおぼろげな頃から忍桜郷にいる。<br>
 基本自由な性格でお庭で遊んだりしているが、みんなに過保護で見守られているため、木に登ろうとしたり危険なことをするとすぐ怒られちゃうのが最近の悩み事。自分はもう一人前だと思っている。
             <div class="farewell">もう、この郷で出会うことはない</div></div>
-        </article>
-
-        <!-- Member: 碧依 -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="碧依"
-                        data-reading="あおい"
-                        data-img="./casts/aoi.png"
-                        data-x="https://x.com/aikwia">碧依</button>
-              </h3>
-              <div class="memberRuby">（あおい）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="syuka" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/ponmizu227" target="_blank" rel="noopener noreferrer" aria-label="秋華のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜妖狐</span>
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-aoi" data-state="present">
+            <a class="memberPhoto openProfile " href="./assets/casts/aoi-full.webp" data-profile="aoi" aria-label="碧依のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"></span><img src="./assets/casts/aoi-thumb.webp" alt="碧依の写真" loading="lazy" decoding="async" width="720" height="960" style="object-position:50% 38%"><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">あおい</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="./assets/casts/aoi-full.webp" data-profile="aoi" data-name="碧依" data-reading="あおい" data-img="./assets/casts/aoi-full.webp" data-original-img="./casts/aoi.png" data-x="https://x.com/aikwia">碧依</a></h3>
+              <div class="badges"><span class="badge">妖狐</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>基本はおっとり</div>
           </div>
-          <div class="memberBio">記憶を失ったまま忍桜郷にたどり着いた妖狐。
+              <div class="memberBio">記憶を失ったまま忍桜郷にたどり着いた妖狐。
 記憶の手がかりを探しながらのんびり過ごしている。<br>
 妖術、忍術、魔術といった、術と呼ばれるものに目が無く、それに関する事柄では突拍子もない行動をすることがある。</div>
-        </article>
-
-                <!-- Member: 狐夜御 -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="狐夜御"
-                        data-reading="こよみ"
-                        data-img="./casts/koyomi.png"
-                        data-x="https://x.com/rin_kakken">狐夜御</button>
-              </h3>
-              <div class="memberRuby">（こよみ）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="aoi" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/aikwia" target="_blank" rel="noopener noreferrer" aria-label="碧依のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜妖狐</span>
-              <!-- XボタンはJSで自動挿入 -->
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-koyomi" data-state="present">
+            <a class="memberPhoto openProfile " href="./assets/casts/koyomi-full.webp" data-profile="koyomi" aria-label="狐夜御のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"></span><img src="./assets/casts/koyomi-thumb.webp" alt="狐夜御の写真" loading="lazy" decoding="async" width="720" height="960" style="object-position:64% 50%"><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">こよみ</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="./assets/casts/koyomi-full.webp" data-profile="koyomi" data-name="狐夜御" data-reading="こよみ" data-img="./assets/casts/koyomi-full.webp" data-original-img="./casts/koyomi.png" data-x="https://x.com/rin_kakken">狐夜御</a></h3>
+              <div class="badges"><span class="badge">妖狐</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>面倒見が良い、時折悪戯心を見せる</div>
           </div>
-          <div class="memberBio">元稲荷神の九尾の妖狐。忍桜郷に迷い込んだ際に神格を取り戻した。元々の気質から幼い者たちを時にやさしく時に厳しく見守っている。<br>
+              <div class="memberBio">元稲荷神の九尾の妖狐。忍桜郷に迷い込んだ際に神格を取り戻した。元々の気質から幼い者たちを時にやさしく時に厳しく見守っている。<br>
             桜が好きなので縁側でよく眺めている。たまに他の住人をからかったりしながら自由気ままに過ごすことも。</div>
-        </article>
-
-                <!-- Member: 紅姫 -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="紅姫"
-                        data-reading="べにひめ"
-                        data-img="./casts/benihime.png"
-                        data-x="https://x.com/hikari_hinosita">紅姫</button>
-              </h3>
-              <div class="memberRuby">（べにひめ）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="koyomi" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/rin_kakken" target="_blank" rel="noopener noreferrer" aria-label="狐夜御のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜妖（蛇）</span>
-              <!-- XボタンはJSで自動挿入 -->
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-benihime" data-state="present">
+            <a class="memberPhoto openProfile noPhoto" href="#member-benihime" data-profile="benihime" aria-label="紅姫のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"><span class="unpublished">写真未掲載</span></span><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">べにひめ</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="#member-benihime" data-profile="benihime" data-name="紅姫" data-reading="べにひめ" data-img="" data-original-img="./casts/benihime.png" data-x="https://x.com/hikari_hinosita">紅姫</a></h3>
+              <div class="badges"><span class="badge">妖（蛇）</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>落ち着いた感じに見えるが少し子供っぽく明るい</div>
           </div>
-          <div class="memberBio">人を探して彷徨っているところを白桜に見つけられ忍桜郷連れてこられ
+              <div class="memberBio">人を探して彷徨っているところを白桜に見つけられ忍桜郷連れてこられ
 その後そのまま住み着いている。<br>
 桜が好き。桜よりもお酒と甘味が大好き。</div>
-        </article>
-
-                        <!-- Member: 紅狼 -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="紅狼"
-                        data-reading="くろ"
-                        data-img="./casts/kuro.png"
-                        data-x="https://x.com/fra2Stella">紅狼</button>
-              </h3>
-              <div class="memberRuby">（くろ）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="benihime" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/hikari_hinosita" target="_blank" rel="noopener noreferrer" aria-label="紅姫のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜妖(狼)</span>
-              <!-- XボタンはJSで自動挿入 -->
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-kuro" data-state="present">
+            <a class="memberPhoto openProfile noPhoto" href="#member-kuro" data-profile="kuro" aria-label="紅狼のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"><span class="unpublished">写真未掲載</span></span><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">くろ</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="#member-kuro" data-profile="kuro" data-name="紅狼" data-reading="くろ" data-img="" data-original-img="./casts/kuro.png" data-x="https://x.com/fra2Stella">紅狼</a></h3>
+              <div class="badges"><span class="badge">妖(狼)</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>優しく真面目だが冗談は通じる</div>
           </div>
-          <div class="memberBio">別の世界で狼の一族として生きていたが仲の良かった狐が同じ狼族によって先立ってしまい復讐を決行するも自らも眠りにつく<br>
+              <div class="memberBio">別の世界で狼の一族として生きていたが仲の良かった狐が同じ狼族によって先立ってしまい復讐を決行するも自らも眠りにつく<br>
 目を覚ました忍桜郷の世界では人の姿として生まれ変わっており身体能力の高さを白桜に買われ屋敷外の警備と演舞を任せてもらっている</div>
-        </article>
-
-                        <!-- Member: 万喜 -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="万喜"
-                        data-reading="まき"
-                        data-img="./casts/maki.png"
-                        data-x="https://x.com/hinaclvf_VRC">万喜</button>
-              </h3>
-              <div class="memberRuby">（まき）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="kuro" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/fra2Stella" target="_blank" rel="noopener noreferrer" aria-label="紅狼のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜妖（鬼）</span>
-              <!-- XボタンはJSで自動挿入 -->
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-maki" data-state="memory">
+            <a class="memberPhoto openProfile " href="./assets/casts/maki-full.webp" data-profile="maki" aria-label="万喜のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"></span><img src="./assets/casts/maki-thumb.webp" alt="万喜の写真" loading="lazy" decoding="async" width="720" height="960" style="object-position:50% 38%"><span class="memoryBadge">思い出の住人</span><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">まき</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="./assets/casts/maki-full.webp" data-profile="maki" data-name="万喜" data-reading="まき" data-img="./assets/casts/maki-full.webp" data-original-img="./casts/maki.png" data-x="https://x.com/hinaclvf_VRC">万喜</a></h3>
+              <div class="badges"><span class="badge">妖（鬼）</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>豪快、大雑把、酒好き</div>
           </div>
-          <div class="memberBio">元半妖の鬼。忍桜郷に迷い込む者の纏う妖気に触れ完全な妖となった。
+              <div class="memberBio">元半妖の鬼。忍桜郷に迷い込む者の纏う妖気に触れ完全な妖となった。
 忍桜郷の台所を根城とし、メシとツマミを作っては飲み食いしている。<br>
 酒と宴が大好きでよく喋る。白桜に酒を取り上げられたので拗ねている。
                       <div class="farewell">もう、この郷で出会うことはないはずだが……？</div></div>
-        </article>
-
-                        <!-- Member: 天椿 -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="天椿"
-                        data-reading="あまつばき"
-                        data-img="./casts/amatubaki.png"
-                        data-x="https://x.com/10gyu29">天椿</button>
-              </h3>
-              <div class="memberRuby">（あまつばき）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="maki" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/hinaclvf_VRC" target="_blank" rel="noopener noreferrer" aria-label="万喜のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜妖（牛鬼）</span>
-              <!-- XボタンはJSで自動挿入 -->
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-amatubaki" data-state="memory">
+            <a class="memberPhoto openProfile noPhoto" href="#member-amatubaki" data-profile="amatubaki" aria-label="天椿のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"><span class="unpublished">写真未掲載</span></span><span class="memoryBadge">思い出の住人</span><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">あまつばき</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="#member-amatubaki" data-profile="amatubaki" data-name="天椿" data-reading="あまつばき" data-img="" data-original-img="./casts/amatubaki.png" data-x="https://x.com/10gyu29">天椿</a></h3>
+              <div class="badges"><span class="badge">妖（牛鬼）</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>妖艶　優しい　女性らしさ</div>
           </div>
-          <div class="memberBio">白桜に助けを求め忍桜郷へ訪れた。迷い子の中に思い人の生まれ変わりを探している。いつも寝ている。 <br>
+              <div class="memberBio">白桜に助けを求め忍桜郷へ訪れた。迷い子の中に思い人の生まれ変わりを探している。いつも寝ている。 <br>
                           <div class="farewell">もう、この郷で出会うことはない</div>
 </div>
-        </article>
-
-                        <!-- Member: さくやひめ -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="さくやひめ"
-                        data-reading="さくやひめ"
-                        data-img="./casts/sakuyahime.png"
-                        data-x="https://x.com/10gyu29">さくやひめ</button>
-              </h3>
-              <div class="memberRuby">（さくやひめ）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="amatubaki" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/10gyu29" target="_blank" rel="noopener noreferrer" aria-label="天椿のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜桜の精霊</span>
-              <!-- XボタンはJSで自動挿入 -->
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-sakuyahime" data-state="memory">
+            <a class="memberPhoto openProfile noPhoto" href="#member-sakuyahime" data-profile="sakuyahime" aria-label="さくやひめのプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"><span class="unpublished">写真未掲載</span></span><span class="memoryBadge">思い出の住人</span><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">さくやひめ</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="#member-sakuyahime" data-profile="sakuyahime" data-name="さくやひめ" data-reading="さくやひめ" data-img="" data-original-img="./casts/sakuyahime.png" data-x="https://x.com/10gyu29">さくやひめ</a></h3>
+              <div class="badges"><span class="badge">桜の精霊</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>元気　好奇心旺盛　恥ずかしがりや</div>
           </div>
-          <div class="memberBio">忍桜郷の桜を管理する桜の精霊。人と話すのが好き。井戸から出入りする。<br>
+              <div class="memberBio">忍桜郷の桜を管理する桜の精霊。人と話すのが好き。井戸から出入りする。<br>
                         <div class="farewell">もう、この郷で出会うことはない</div></div>
-        </article>
-
-                                <!-- Member: かすか -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="幽"
-                        data-reading="かすか"
-                        data-img="./casts/kasuka.png"
-                        data-x="https://x.com/Chapter_san">幽</button>
-              </h3>
-              <div class="memberRuby">（かすか）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="sakuyahime" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/10gyu29" target="_blank" rel="noopener noreferrer" aria-label="さくやひめのXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜妖（蜃）</span>
-              <!-- XボタンはJSで自動挿入 -->
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-kasuka" data-state="present">
+            <a class="memberPhoto openProfile " href="./assets/casts/kasuka-full.webp" data-profile="kasuka" aria-label="幽のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"></span><img src="./assets/casts/kasuka-thumb.webp" alt="幽の写真" loading="lazy" decoding="async" width="720" height="960" style="object-position:50% 38%"><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">かすか</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="./assets/casts/kasuka-full.webp" data-profile="kasuka" data-name="幽" data-reading="かすか" data-img="./assets/casts/kasuka-full.webp" data-original-img="./casts/kasuka.png" data-x="https://x.com/Chapter_san">幽</a></h3>
+              <div class="badges"><span class="badge">妖（蜃）</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>おとなしいが茶目っ気がある</div>
           </div>
-          <div class="memberBio">忍桜郷に移り住んだ元旅芸人。
+              <div class="memberBio">忍桜郷に移り住んだ元旅芸人。
 種族柄幻術が得意だが、タネも仕掛けもある人間の手品が好き。<br>
 日々芸の研究に勤しむものの、舞台に対し萎縮する為見る機会は少ない。</div>
-        </article>
-
-                                <!-- Member: むらくも -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="叢雲"
-                        data-reading="むらくも"
-                        data-img="./casts/murakumo.png"
-                        data-x="https://x.com/Chapter_san">叢雲</button>
-              </h3>
-              <div class="memberRuby">（むらくも）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="kasuka" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/Chapter_san" target="_blank" rel="noopener noreferrer" aria-label="幽のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜妖（大蛇）</span>
-              <!-- XボタンはJSで自動挿入 -->
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-murakumo" data-state="present">
+            <a class="memberPhoto openProfile " href="./assets/casts/murakumo-full.webp" data-profile="murakumo" aria-label="叢雲のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"></span><img src="./assets/casts/murakumo-thumb.webp" alt="叢雲の写真" loading="lazy" decoding="async" width="720" height="960" style="object-position:52% 50%"><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">むらくも</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="./assets/casts/murakumo-full.webp" data-profile="murakumo" data-name="叢雲" data-reading="むらくも" data-img="./assets/casts/murakumo-full.webp" data-original-img="./casts/murakumo.png" data-x="https://x.com/Chapter_san">叢雲</a></h3>
+              <div class="badges"><span class="badge">妖（大蛇）</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>飄々とした自信家</div>
           </div>
-          <div class="memberBio">かつては強大な力を持っていたが、退治された際に身体を裂かれ、その力のほとんどを失った。
+              <div class="memberBio">かつては強大な力を持っていたが、退治された際に身体を裂かれ、その力のほとんどを失った。
 現在は、刃物の修復を請け負う傍ら義肢を制作し、失った身体の再現を目指している。<br>
 
 普段は籠って作業をしているものの、外の技術を知るために客人の前には現れる。<br></div>
-        </article>
-        
-                                <!-- Member: なつき -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="那月(なつき)"
-                        data-reading="なつき"
-                        data-img="./casts/natuki.png"
-                        data-x="https://x.com/Nata0224_vrc">那月</button>
-              </h3>
-              <div class="memberRuby">（なつき）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="murakumo" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/Chapter_san" target="_blank" rel="noopener noreferrer" aria-label="叢雲のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜鬼</span>
-              <!-- XボタンはJSで自動挿入 -->
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-natuki" data-state="present">
+            <a class="memberPhoto openProfile " href="./assets/casts/natuki-full.webp" data-profile="natuki" aria-label="那月(なつき)のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"></span><img src="./assets/casts/natuki-thumb.webp" alt="那月(なつき)の写真" loading="lazy" decoding="async" width="720" height="960" style="object-position:50% 38%"><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">なつき</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="./assets/casts/natuki-full.webp" data-profile="natuki" data-name="那月(なつき)" data-reading="なつき" data-img="./assets/casts/natuki-full.webp" data-original-img="./casts/natuki.png" data-x="https://x.com/Nata0224_vrc">那月(なつき)</a></h3>
+              <div class="badges"><span class="badge">鬼</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>普段は適当だが変なとこで完璧主義</div>
           </div>
-          <div class="memberBio">昔はとある島で悪さをしていたが、人間達に追い出され逃げていた所、忍桜郷に迷い込んだ。
+              <div class="memberBio">昔はとある島で悪さをしていたが、人間達に追い出され逃げていた所、忍桜郷に迷い込んだ。
 今は刀を練習しいつか来る日に備え自分を磨いている...
 はずだが酒に溺れている日も少なくない。</div>
-        </article>
-
-                                        <!-- Member: やぎりまる -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="夜霧丸"
-                        data-reading="やぎりまる"
-                        data-img="./casts/yagiri.png"
-                        data-x="https://x.com/hashi8484hashi">夜霧丸</button>
-              </h3>
-              <div class="memberRuby">（やぎりまる）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="natuki" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/Nata0224_vrc" target="_blank" rel="noopener noreferrer" aria-label="那月(なつき)のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜人/忍</span>
-              <!-- XボタンはJSで自動挿入 -->
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-yagiri" data-state="present">
+            <a class="memberPhoto openProfile " href="./assets/casts/yagiri-full.webp" data-profile="yagiri" aria-label="夜霧丸のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"></span><img src="./assets/casts/yagiri-thumb.webp" alt="夜霧丸の写真" loading="lazy" decoding="async" width="720" height="960" style="object-position:56% 45%"><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">やぎりまる</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="./assets/casts/yagiri-full.webp" data-profile="yagiri" data-name="夜霧丸" data-reading="やぎりまる" data-img="./assets/casts/yagiri-full.webp" data-original-img="./casts/yagiri.png" data-x="https://x.com/hashi8484hashi">夜霧丸</a></h3>
+              <div class="badges"><span class="badge">人/忍</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>軽快でおちゃらけた忍者</div>
           </div>
-          <div class="memberBio">とある忍流派の跡継ぎ息子だったが、自由気ままに生きたいが為に脱走
+              <div class="memberBio">とある忍流派の跡継ぎ息子だったが、自由気ままに生きたいが為に脱走
 追われる身となっていた所、忍桜郷に偶然流れ着き働く代わりに匿って貰っている
 基本的に飄々としており、おちゃらけている為忍あるまじき性格をしている<br>
 
 閉鎖的な里にいた為、忍桜郷の仲間達や迷い込んだ人々の話を聞くのを楽しみにしている
 最近は色恋話がお気に入り</div>
-        </article>
-
-                                                <!-- Member: にゃぎりまる -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="にゃぎり丸"
-                        data-reading="にゃぎりまる"
-                        data-img="./casts/nyagiri.png"
-                        data-x="https://x.com/hashi8484hashi">にゃぎり丸</button>
-              </h3>
-              <div class="memberRuby">（にゃぎりまる）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="yagiri" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/hashi8484hashi" target="_blank" rel="noopener noreferrer" aria-label="夜霧丸のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜猫/忍</span>
-              <!-- XボタンはJSで自動挿入 -->
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-nyagiri" data-state="present">
+            <a class="memberPhoto openProfile " href="./assets/casts/nyagiri-full.webp" data-profile="nyagiri" aria-label="にゃぎり丸のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"></span><img src="./assets/casts/nyagiri-thumb.webp" alt="にゃぎり丸の写真" loading="lazy" decoding="async" width="720" height="960" style="object-position:54% 50%"><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">にゃぎりまる</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="./assets/casts/nyagiri-full.webp" data-profile="nyagiri" data-name="にゃぎり丸" data-reading="にゃぎりまる" data-img="./assets/casts/nyagiri-full.webp" data-original-img="./casts/nyagiri.png" data-x="https://x.com/hashi8484hashi">にゃぎり丸</a></h3>
+              <div class="badges"><span class="badge">猫/忍</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>食い散らかし猫忍者</div>
           </div>
-          <div class="memberBio">おそらく夜霧丸、ある日猫になった状態で戻ってきた。
+              <div class="memberBio">おそらく夜霧丸、ある日猫になった状態で戻ってきた。
 人と猫状態でほとんど記憶を共有してない為、名前と匿いの身である事しか覚えてない。<br>
 夜霧丸の時より自由な振る舞いをしており、特に団子の食い散らかしが目立つ。<br>
 団子を一つ残しする事を美徳としており、周りにおすそ分けしてくる。<br>
 
 内心猫鍋に怯えている。<br>
 </div>
-        </article>
-
-                                        <!-- Member: ようぽ -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="妖歩"
-                        data-reading="ようぽ"
-                        data-img="./casts/youpo.png"
-                        data-x="https://x.com/Yopo_VRC">妖歩</button>
-              </h3>
-              <div class="memberRuby">（ようぽ）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="nyagiri" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/hashi8484hashi" target="_blank" rel="noopener noreferrer" aria-label="にゃぎり丸のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜ 妖（管狐）</span>
-              <!-- XボタンはJSで自動挿入 -->
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-youpo" data-state="present">
+            <a class="memberPhoto openProfile " href="./assets/casts/youpo-full.webp" data-profile="youpo" aria-label="妖歩のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"></span><img src="./assets/casts/youpo-thumb.webp" alt="妖歩の写真" loading="lazy" decoding="async" width="720" height="960" style="object-position:50% 38%"><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">ようぽ</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="./assets/casts/youpo-full.webp" data-profile="youpo" data-name="妖歩" data-reading="ようぽ" data-img="./assets/casts/youpo-full.webp" data-original-img="./casts/youpo.png" data-x="https://x.com/Yopo_VRC">妖歩</a></h3>
+              <div class="badges"><span class="badge">妖（管狐）</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>よく笑い、笑顔を見るのが大好きな管狐</div>
           </div>
-          <div class="memberBio">管狐は笑顔をエネルギーとしているが、故郷はとある理由で人が居なくなり笑顔を求め、彷徨っている所で忍桜卿へ辿り着き、迷い込んだ者達を笑顔にする事で空腹を満たしながら、自分を三食昼寝付きで使い魔にしてくれる『いづな使い』を探して日々を過ごしている。
+              <div class="memberBio">管狐は笑顔をエネルギーとしているが、故郷はとある理由で人が居なくなり笑顔を求め、彷徨っている所で忍桜卿へ辿り着き、迷い込んだ者達を笑顔にする事で空腹を満たしながら、自分を三食昼寝付きで使い魔にしてくれる『いづな使い』を探して日々を過ごしている。
 
 たまに迷い込んだ者達をからかったり、遊んだりもする一面もある管狐。 
 </div>
-        </article>
-
-                                        <!-- Member: たまゆら -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="玉響"
-                        data-reading="たまゆら"
-                        data-img="./casts/tamayura.png"
-                        data-x="https://x.com/mesha_vrc">玉響</button>
-              </h3>
-              <div class="memberRuby">（たまゆら）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="youpo" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/Yopo_VRC" target="_blank" rel="noopener noreferrer" aria-label="妖歩のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜妖(猫)</span>
-              <!-- XボタンはJSで自動挿入 -->
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-tamayura" data-state="present">
+            <a class="memberPhoto openProfile " href="./assets/casts/tamayura-full.webp" data-profile="tamayura" aria-label="玉響のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"></span><img src="./assets/casts/tamayura-thumb.webp" alt="玉響の写真" loading="lazy" decoding="async" width="720" height="960" style="object-position:50% 38%"><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">たまゆら</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="./assets/casts/tamayura-full.webp" data-profile="tamayura" data-name="玉響" data-reading="たまゆら" data-img="./assets/casts/tamayura-full.webp" data-original-img="./casts/tamayura.png" data-x="https://x.com/mesha_vrc">玉響</a></h3>
+              <div class="badges"><span class="badge">妖(猫)</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>気まぐれだが人懐っこい</div>
           </div>
-          <div class="memberBio">9つの魂を終えて、気づけば忍桜郷に迷い込み妖になっていた。
+              <div class="memberBio">9つの魂を終えて、気づけば忍桜郷に迷い込み妖になっていた。
 他に行くところもないし、寝床はあるしごはんはおいしいのでそのまま住み着いている。<br>
 現世にいたころ可愛がってもらっていたので基本的には人間のことは好き。
 自由奔放でよく人をからかったりするいたずらっ子。</div>
-        </article>
-
-                                                <!-- Member: なんば -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="灘波"
-                        data-reading="なんば"
-                        data-img="./casts/nanba.png"
-                        data-x="https://x.com/contactvr_ap">灘波</button>
-              </h3>
-              <div class="memberRuby">（なんば）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="tamayura" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/mesha_vrc" target="_blank" rel="noopener noreferrer" aria-label="玉響のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜妖(鵺)</span>
-              <!-- XボタンはJSで自動挿入 -->
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-nanba" data-state="present">
+            <a class="memberPhoto openProfile " href="./assets/casts/nanba-full.webp" data-profile="nanba" aria-label="灘波のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"></span><img src="./assets/casts/nanba-thumb.webp" alt="灘波の写真" loading="lazy" decoding="async" width="720" height="960" style="object-position:50% 38%"><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">なんば</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="./assets/casts/nanba-full.webp" data-profile="nanba" data-name="灘波" data-reading="なんば" data-img="./assets/casts/nanba-full.webp" data-original-img="./casts/nanba.png" data-x="https://x.com/contactvr_ap">灘波</a></h3>
+              <div class="badges"><span class="badge">妖(鵺)</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>現代に興味津々なおっちゃん</div>
           </div>
-          <div class="memberBio">平安の世に討たれ川に流された鵺の肉体が、忍桜郷にたどり着いて再び魂を持った妖。
+              <div class="memberBio">平安の世に討たれ川に流された鵺の肉体が、忍桜郷にたどり着いて再び魂を持った妖。
 生前の事を覚えているが本人の魂ではないため、どこか他人ごとに思っている様子。<br>
 現代の機械に興味があるらしく、時折忍桜郷に来た客の忘れ物などをこっそり持って帰ることがあるらしい。</div>
-        </article>
-
-                                                        <!-- Member: もちづき -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="望月"
-                        data-reading="もちづき"
-                        data-img="./casts/motiduki.png"
-                        data-x="https://x.com/usagino_nono">望月</button>
-              </h3>
-              <div class="memberRuby">（もちづき）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="nanba" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/contactvr_ap" target="_blank" rel="noopener noreferrer" aria-label="灘波のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜月のうさぎ</span>
-              <!-- XボタンはJSで自動挿入 -->
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-motiduki" data-state="present">
+            <a class="memberPhoto openProfile " href="./assets/casts/motiduki-full.webp" data-profile="motiduki" aria-label="望月のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"></span><img src="./assets/casts/motiduki-thumb.webp" alt="望月の写真" loading="lazy" decoding="async" width="720" height="960" style="object-position:50% 38%"><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">もちづき</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="./assets/casts/motiduki-full.webp" data-profile="motiduki" data-name="望月" data-reading="もちづき" data-img="./assets/casts/motiduki-full.webp" data-original-img="./casts/motiduki.png" data-x="https://x.com/usagino_nono">望月</a></h3>
+              <div class="badges"><span class="badge">月のうさぎ</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>おっとりしているが子どもみたいな性格</div>
           </div>
-          <div class="memberBio">もともと月に住んでいた兎で人間と人間の食べ物に興味を持ち
+              <div class="memberBio">もともと月に住んでいた兎で人間と人間の食べ物に興味を持ち
 人間が来るという噂の忍桜郷に迷い込んできた。<br>
 基本的には食べ物の話しかしない。<br>
 おっとりとした大きいお姉さんだが子供みたいな性格をしているためたまに駄々っ子になる
 脳年齢は人間で3歳</div>
-        </article>
-
-                <!-- Member: 蓬 -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="蓬"
-                        data-reading="よもぎ"
-                        data-img="./casts/yomogi.png"
-                        data-x="https://x.com/oshirukodaimyo">蓬</button>
-              </h3>
-              <div class="memberRuby">（よもぎ）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="motiduki" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/usagino_nono" target="_blank" rel="noopener noreferrer" aria-label="望月のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜狸の妖怪</span>
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-yomogi" data-state="present">
+            <a class="memberPhoto openProfile " href="./assets/casts/yomogi-full.webp" data-profile="yomogi" aria-label="蓬のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"></span><img src="./assets/casts/yomogi-thumb.webp" alt="蓬の写真" loading="lazy" decoding="async" width="720" height="960" style="object-position:50% 38%"><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">よもぎ</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="./assets/casts/yomogi-full.webp" data-profile="yomogi" data-name="蓬" data-reading="よもぎ" data-img="./assets/casts/yomogi-full.webp" data-original-img="./casts/yomogi.png" data-x="https://x.com/oshirukodaimyo">蓬</a></h3>
+              <div class="badges"><span class="badge">狸の妖怪</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>穏やかで人当たりが良いが嘘か本当かわからない冗談を言う。</div>
           </div>
-          <div class="memberBio">狸の妖怪であり、忍び。<br>
+              <div class="memberBio">狸の妖怪であり、忍び。<br>
 変化の術を得意としていたが、今はなぜか術が不完全となり、耳と尻尾だけが残った姿で過ごしている。<br>
 過去の記憶の一部が曖昧で、自身がどこから来たのか、なぜ現在の姿になったのかをはっきりと思い出せない。<br>
 しかし本人はそれを悲観しすぎておらず、「そのうち思い出すかもしれないし、思い出さないかもしれない」
 くらいの気持ちでいる。<br>
 蓬の話は信用しすぎてもいけないし、疑いすぎてもいけない。 
 </div>
-        </article>
-
-                        <!-- Member: あお -->
-        <article class="member">
-          <div class="memberHeader">
-            <div>
-              <h3 class="memberName">
-                ■名前｜
-                <button class="castBtn"
-                        data-name="青"
-                        data-reading="あお"
-                        data-img="./casts/ao.png"
-                        data-x="https://x.com/oshirukodaimyo">青</button>
-              </h3>
-              <div class="memberRuby">（あお）</div>
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="yomogi" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/oshirukodaimyo" target="_blank" rel="noopener noreferrer" aria-label="蓬のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
-            <div class="badges">
-              <span class="badge">■種族｜月人</span>
-            </div>
-          </div>
-          <div class="memberMeta">
+          </article>
+          <article class="member" id="member-ao" data-state="present">
+            <a class="memberPhoto openProfile " href="./assets/casts/ao-full.webp" data-profile="ao" aria-label="青のプロフィールを開く">
+              <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"></span><img src="./assets/casts/ao-thumb.webp" alt="青の写真" loading="lazy" decoding="async" width="720" height="960" style="object-position:50% 38%"><span class="photoOpen" aria-hidden="true">↗</span>
+            </a>
+            <div class="memberInfo">
+              <p class="memberRuby">あお</p>
+              <h3 class="memberName"><a class="castBtn openProfile" href="./assets/casts/ao-full.webp" data-profile="ao" data-name="青" data-reading="あお" data-img="./assets/casts/ao-full.webp" data-original-img="./casts/ao.png" data-x="https://x.com/oshirukodaimyo">青</a></h3>
+              <div class="badges"><span class="badge">月人</span></div>
+              <div class="memberMeta">
             <div><b>■性格｜</b>世間知らずで人好き。好奇心旺盛。</div>
           </div>
-          <div class="memberBio">羽衣を着せられ地上の記憶を全てなくし月へ帰った竹取の姫。<br>
+              <div class="memberBio">羽衣を着せられ地上の記憶を全てなくし月へ帰った竹取の姫。<br>
 月での生活が退屈な為、再び地上へと降り立とうとしたところ忍桜郷に迷い込む。<br>
 下界の様々な人々が客人として訪れる忍桜郷で地上の文化を学び直している。<br>
 悪癖として時折、この世には存在しない無理難題な貢物を要求することがある。<br>
 </div>
-        </article>
-        
+              <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="ao" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/oshirukodaimyo" target="_blank" rel="noopener noreferrer" aria-label="青のXアカウント（新しいタブ）">X ↗</a></div>
+            </div>
+          </article>
+        </div>
+        <div class="emptyState" id="emptyState" hidden><p>その言葉に重なる住人は、<br>まだ見つかりませんでした。</p><span>別の名前や種族で探してみてください。</span><button type="button" class="button dark" id="resetFilters">すべての住人を表示</button></div>
+        <div class="rosterEnd"><p>出会いの続きは、桜の下で。</p><a class="textLink" href="./index.html#visit">郷への訪れ方<span aria-hidden="true">→</span></a></div>
       </div>
     </section>
   </main>
-
-  <!-- Modal -->
-  <dialog class="castModal" id="castModal">
-    <div class="modalInner">
-      <div class="modalHeader">
-        <div>
-          <h3 class="modalTitle" id="mTitle">—</h3>
-          <div class="modalSub" id="mSub">—</div>
-          <div class="modalLinks" id="mLinks"></div>
-        </div>
-        <button class="modalClose" id="mClose" type="button">Close</button>
-      </div>
-
-      <div class="modalBody">
-        <div class="modalMedia">
-          <img class="modalImg" id="mImg" src="" alt="">
-        </div>
-
-        <div class="modalContent" id="mContent">
-          <div class="muted">プロフィールを表示します。</div>
-        </div>
-      </div>
-    </div>
-  </dialog>
-
-  <footer class="footer">
-    <div class="footerRow">
-      <div>忍桜郷 / Ninoukyo</div>
-      <div class="muted"> <span id="y"></span> Ninoukyo</div>
+<footer class="siteFooter">
+    <div class="footerInner">
+      <a class="brand footerBrand" href="./index.html"><img src="./logo-ninoukyo.png" alt="" width="44" height="44"><span class="brandName">忍桜郷<small>NINOUKYO</small></span></a>
+      <p>また、桜の向こうで。</p>
+      <div class="footerLinks"><a href="./index.html">イベント概要</a><a href="./members.html">郷の住人</a><a href="https://x.com/Ninoukyo_VRC" target="_blank" rel="noopener noreferrer">公式X ↗<span class="srOnly">（新しいタブ）</span></a></div>
+      <small>© <span data-year>2026</span> Ninoukyo</small>
     </div>
   </footer>
-
-  <script>
-    // year
-    document.getElementById("y").textContent = new Date().getFullYear();
-
-    // modal
-    const modal = document.getElementById("castModal");
-    const mTitle = document.getElementById("mTitle");
-    const mSub = document.getElementById("mSub");
-    const mLinks = document.getElementById("mLinks");
-    const mImg = document.getElementById("mImg");
-    const mContent = document.getElementById("mContent");
-    const mClose = document.getElementById("mClose");
-
-    // 1) カード側：Xボタンを自動挿入（data-x を参照）
-    document.querySelectorAll(".member").forEach(card => {
-      const btn = card.querySelector(".castBtn");
-      const badges = card.querySelector(".badges");
-      if (!btn || !badges) return;
-
-      // すでに入ってたら二重生成しない
-      if (badges.querySelector(".xBtn")) return;
-
-      const x = btn.dataset.x || "";
-      if (!x) return;
-
-      const name = btn.dataset.name || btn.textContent.trim() || "キャスト";
-      const a = document.createElement("a");
-      a.className = "xBtn";
-      a.href = x;
-      a.target = "_blank";
-      a.rel = "noopener";
-      a.setAttribute("aria-label", `${name}のXアカウント`);
-      a.textContent = "X Account";
-
-      badges.appendChild(a);
-    });
-
-    // 2) モーダル：開いた時にXリンク表示
-    document.querySelectorAll(".castBtn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const name = btn.dataset.name || btn.textContent.trim();
-        const reading = btn.dataset.reading || "";
-        const img = btn.dataset.img || "";
-        const x = btn.dataset.x || "";
-
-        mTitle.textContent = `■名前｜${name}`;
-        mSub.textContent = reading ? `（${reading}）` : "";
-
-        // X link
-        if (x) {
-          mLinks.innerHTML = `<a href="${x}" target="_blank" rel="noopener">X Account</a>`;
-        } else {
-          mLinks.innerHTML = "";
-        }
-
-        // image
-        if (img) {
-          mImg.src = img;
-          mImg.alt = name;
-          mImg.style.display = "block";
-        } else {
-          mImg.removeAttribute("src");
-          mImg.alt = "";
-          mImg.style.display = "none";
-        }
-
-        // profile from the same card
-        const card = btn.closest(".member");
-        if (card) {
-          const meta = card.querySelector(".memberMeta")?.innerHTML || "";
-          const bio = card.querySelector(".memberBio")?.innerHTML || "";
-          mContent.innerHTML = `${meta}${bio ? `<div style="margin-top:10px">${bio}</div>` : ""}`;
-        } else {
-          mContent.innerHTML = `<div class="muted">プロフィールを表示します。</div>`;
-        }
-
-        modal.showModal();
-      });
-    });
-
-    // close by button
-    mClose.addEventListener("click", () => modal.close());
-
-    // close by outside click (backdrop)
-    modal.addEventListener("click", (e) => {
-      const rect = modal.getBoundingClientRect();
-      const inDialog =
-        rect.top <= e.clientY && e.clientY <= rect.bottom &&
-        rect.left <= e.clientX && e.clientX <= rect.right;
-      if (!inDialog) modal.close();
-    });
-  </script>
+  <dialog class="castModal" id="castModal" aria-labelledby="mTitle" aria-describedby="mSub">
+    <button class="modalClose" id="mClose" type="button" autofocus aria-label="プロフィールを閉じる">×</button>
+    <div class="modalBody">
+      <div class="modalMedia"><img id="mImg" alt="" hidden><div class="modalPlaceholder" id="modalPlaceholder"><img src="./logo-ninoukyo.png" alt="" width="120" height="120"><span>写真未掲載</span></div><p class="imageLoading" id="imageLoading" role="status" hidden>写真を読み込んでいます</p></div>
+      <div class="modalText"><p class="eyebrow">STORY OF NINOUKYO</p><p class="modalSub" id="mSub"></p><h2 id="mTitle"></h2><div class="modalBadges" id="mBadges"></div><div class="modalContent" id="mContent"></div><div id="mLinks" class="modalLinks"></div></div>
+    </div>
+  </dialog>
 </body>
 </html>
