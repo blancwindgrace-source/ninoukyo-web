@@ -44,7 +44,7 @@
     <section class="rosterSection paperSection" aria-labelledby="rosterTitle">
       <div class="wrap">
         <div class="rosterTop"><h2 id="rosterTitle">住人一覧<small>RESIDENTS</small></h2><div class="searchBox jsOnly"><label class="srOnly" for="memberSearch">名前・読み・種族で住人を探す</label><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 5 5"></path></svg><input id="memberSearch" type="search" placeholder="名前・読み・種族で探す" autocomplete="off" enterkeyhint="search"><button type="button" id="clearSearch" aria-label="検索をクリア" hidden>×</button></div></div>
-        <div class="filterRow jsOnly"><div class="memberFilters" role="group" aria-label="住人の表示を切り替える"><button type="button" data-filter="all" aria-pressed="false">すべて <span data-count="all"></span></button><button type="button" data-filter="present" aria-pressed="true">郷の住人 <span data-count="present"></span></button><button type="button" data-filter="memory" aria-pressed="false">思い出の住人 <span data-count="memory"></span></button></div><p class="resultCount" id="resultCount" role="status" aria-live="polite" aria-atomic="true"></p></div>
+        <div class="filterRow jsOnly"><div class="memberFilters" role="group" aria-label="住人の表示を切り替える"><button type="button" data-filter="all" aria-pressed="false">すべて <span data-count="all"></span></button><button type="button" data-filter="present" aria-pressed="true">郷の住人 <span data-count="present"></span></button><button type="button" data-filter="performer" aria-pressed="false">演者 <span data-count="performer"></span></button><button type="button" data-filter="memory" aria-pressed="false">思い出の住人 <span data-count="memory"></span></button></div><p class="resultCount" id="resultCount" role="status" aria-live="polite" aria-atomic="true"></p></div>
         <p class="rosterHelp">写真や名前から、詳しいプロフィールをご覧いただけます。</p>
         <div class="memberGrid" id="memberGrid">
           <article class="member" id="member-byakuou" data-state="present">
@@ -234,14 +234,14 @@
               <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="yukino" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/TenmuVRC_BLUE" target="_blank" rel="noopener noreferrer" aria-label="雪乃のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
           </article>
-          <article class="member" id="member-oushourin" data-state="present">
+          <article class="member" id="member-oushourin" data-state="present" data-role="performer">
             <a class="memberPhoto openProfile " href="./assets/casts/oushourin-full.webp" data-profile="oushourin" aria-label="桜唱 綾のプロフィールを開く">
               <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"></span><img src="./assets/casts/oushourin-thumb.webp" alt="桜唱 綾の写真" loading="lazy" decoding="async" width="720" height="960" style="object-position:49% 42%"><span class="photoOpen" aria-hidden="true">↗</span>
             </a>
             <div class="memberInfo">
               <p class="memberRuby">おうしょうりん</p>
               <h3 class="memberName"><a class="castBtn openProfile" href="./assets/casts/oushourin-full.webp" data-profile="oushourin" data-name="桜唱 綾" data-reading="おうしょうりん" data-img="./assets/casts/oushourin-full.webp" data-original-img="./casts/oushourin.png" data-x="https://x.com/u63svrc">桜唱 綾</a></h3>
-              <div class="badges"><span class="badge">竜種</span></div>
+              <div class="badges"><span class="badge">竜種</span><span class="badge badgePerformer">演者</span></div>
               <div class="memberMeta">
             <div><b>■性格｜</b>おっとり</div>
           </div>
@@ -424,14 +424,14 @@
               <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="syuka" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/ponmizu227" target="_blank" rel="noopener noreferrer" aria-label="秋華のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
           </article>
-          <article class="member" id="member-aoi" data-state="present">
+          <article class="member" id="member-aoi" data-state="present" data-role="performer">
             <a class="memberPhoto openProfile " href="./assets/casts/aoi-full.webp" data-profile="aoi" aria-label="碧依のプロフィールを開く">
               <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"></span><img src="./assets/casts/aoi-thumb.webp" alt="碧依の写真" loading="lazy" decoding="async" width="720" height="960" style="object-position:50% 38%"><span class="photoOpen" aria-hidden="true">↗</span>
             </a>
             <div class="memberInfo">
               <p class="memberRuby">あおい</p>
               <h3 class="memberName"><a class="castBtn openProfile" href="./assets/casts/aoi-full.webp" data-profile="aoi" data-name="碧依" data-reading="あおい" data-img="./assets/casts/aoi-full.webp" data-original-img="./casts/aoi.png" data-x="https://x.com/aikwia">碧依</a></h3>
-              <div class="badges"><span class="badge">妖狐</span></div>
+              <div class="badges"><span class="badge">妖狐</span><span class="badge badgePerformer">演者</span></div>
               <div class="memberMeta">
             <div><b>■性格｜</b>基本はおっとり</div>
           </div>
@@ -457,14 +457,14 @@
               <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="koyomi" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/rin_kakken" target="_blank" rel="noopener noreferrer" aria-label="狐夜御のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
           </article>
-          <article class="member" id="member-benihime" data-state="present">
+          <article class="member" id="member-benihime" data-state="present" data-role="performer">
             <a class="memberPhoto openProfile noPhoto" href="#member-benihime" data-profile="benihime" aria-label="紅姫のプロフィールを開く">
               <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"><span class="unpublished">写真未掲載</span></span><span class="photoOpen" aria-hidden="true">↗</span>
             </a>
             <div class="memberInfo">
               <p class="memberRuby">べにひめ</p>
               <h3 class="memberName"><a class="castBtn openProfile" href="#member-benihime" data-profile="benihime" data-name="紅姫" data-reading="べにひめ" data-img="" data-original-img="./casts/benihime.png" data-x="https://x.com/hikari_hinosita">紅姫</a></h3>
-              <div class="badges"><span class="badge">妖（蛇）</span></div>
+              <div class="badges"><span class="badge">妖（蛇）</span><span class="badge badgePerformer">演者</span></div>
               <div class="memberMeta">
             <div><b>■性格｜</b>落ち着いた感じに見えるが少し子供っぽく明るい</div>
           </div>
@@ -474,14 +474,14 @@
               <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="benihime" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/hikari_hinosita" target="_blank" rel="noopener noreferrer" aria-label="紅姫のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
           </article>
-          <article class="member" id="member-kuro" data-state="present">
+          <article class="member" id="member-kuro" data-state="present" data-role="performer">
             <a class="memberPhoto openProfile noPhoto" href="#member-kuro" data-profile="kuro" aria-label="紅狼のプロフィールを開く">
               <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"><span class="unpublished">写真未掲載</span></span><span class="photoOpen" aria-hidden="true">↗</span>
             </a>
             <div class="memberInfo">
               <p class="memberRuby">くろ</p>
               <h3 class="memberName"><a class="castBtn openProfile" href="#member-kuro" data-profile="kuro" data-name="紅狼" data-reading="くろ" data-img="" data-original-img="./casts/kuro.png" data-x="https://x.com/fra2Stella">紅狼</a></h3>
-              <div class="badges"><span class="badge">妖(狼)</span></div>
+              <div class="badges"><span class="badge">妖(狼)</span><span class="badge badgePerformer">演者</span></div>
               <div class="memberMeta">
             <div><b>■性格｜</b>優しく真面目だが冗談は通じる</div>
           </div>
@@ -541,14 +541,14 @@
               <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="sakuyahime" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/10gyu29" target="_blank" rel="noopener noreferrer" aria-label="さくやひめのXアカウント（新しいタブ）">X ↗</a></div>
             </div>
           </article>
-          <article class="member" id="member-kasuka" data-state="present">
+          <article class="member" id="member-kasuka" data-state="present" data-role="performer">
             <a class="memberPhoto openProfile " href="./assets/casts/kasuka-full.webp" data-profile="kasuka" aria-label="幽のプロフィールを開く">
               <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"></span><img src="./assets/casts/kasuka-thumb.webp" alt="幽の写真" loading="lazy" decoding="async" width="720" height="960" style="object-position:50% 38%"><span class="photoOpen" aria-hidden="true">↗</span>
             </a>
             <div class="memberInfo">
               <p class="memberRuby">かすか</p>
               <h3 class="memberName"><a class="castBtn openProfile" href="./assets/casts/kasuka-full.webp" data-profile="kasuka" data-name="幽" data-reading="かすか" data-img="./assets/casts/kasuka-full.webp" data-original-img="./casts/kasuka.png" data-x="https://x.com/Chapter_san">幽</a></h3>
-              <div class="badges"><span class="badge">妖（蜃）</span></div>
+              <div class="badges"><span class="badge">妖（蜃）</span><span class="badge badgePerformer">演者</span></div>
               <div class="memberMeta">
             <div><b>■性格｜</b>おとなしいが茶目っ気がある</div>
           </div>
@@ -558,14 +558,14 @@
               <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="kasuka" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/Chapter_san" target="_blank" rel="noopener noreferrer" aria-label="幽のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
           </article>
-          <article class="member" id="member-murakumo" data-state="present">
+          <article class="member" id="member-murakumo" data-state="present" data-role="performer">
             <a class="memberPhoto openProfile " href="./assets/casts/murakumo-full.webp" data-profile="murakumo" aria-label="叢雲のプロフィールを開く">
               <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"></span><img src="./assets/casts/murakumo-thumb.webp" alt="叢雲の写真" loading="lazy" decoding="async" width="720" height="960" style="object-position:52% 50%"><span class="photoOpen" aria-hidden="true">↗</span>
             </a>
             <div class="memberInfo">
               <p class="memberRuby">むらくも</p>
               <h3 class="memberName"><a class="castBtn openProfile" href="./assets/casts/murakumo-full.webp" data-profile="murakumo" data-name="叢雲" data-reading="むらくも" data-img="./assets/casts/murakumo-full.webp" data-original-img="./casts/murakumo.png" data-x="https://x.com/Chapter_san">叢雲</a></h3>
-              <div class="badges"><span class="badge">妖（大蛇）</span></div>
+              <div class="badges"><span class="badge">妖（大蛇）</span><span class="badge badgePerformer">演者</span></div>
               <div class="memberMeta">
             <div><b>■性格｜</b>飄々とした自信家</div>
           </div>
@@ -576,20 +576,20 @@
               <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="murakumo" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/Chapter_san" target="_blank" rel="noopener noreferrer" aria-label="叢雲のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
           </article>
-          <article class="member" id="member-natuki" data-state="present">
+          <article class="member" id="member-natuki" data-state="present" data-role="performer">
             <a class="memberPhoto openProfile " href="./assets/casts/natuki-full.webp" data-profile="natuki" aria-label="那月(なつき)のプロフィールを開く">
               <span class="photoPlaceholder" aria-hidden="true"><img src="./logo-ninoukyo.png" alt="" width="90" height="90"></span><img src="./assets/casts/natuki-thumb.webp" alt="那月(なつき)の写真" loading="lazy" decoding="async" width="720" height="960" style="object-position:50% 38%"><span class="photoOpen" aria-hidden="true">↗</span>
             </a>
             <div class="memberInfo">
               <p class="memberRuby">なつき</p>
               <h3 class="memberName"><a class="castBtn openProfile" href="./assets/casts/natuki-full.webp" data-profile="natuki" data-name="那月(なつき)" data-reading="なつき" data-img="./assets/casts/natuki-full.webp" data-original-img="./casts/natuki.png" data-x="https://x.com/Nata0224_vrc">那月(なつき)</a></h3>
-              <div class="badges"><span class="badge">鬼</span></div>
+              <div class="badges"><span class="badge">鬼</span><span class="badge badgePerformer">演者</span></div>
               <div class="memberMeta">
             <div><b>■性格｜</b>普段は適当だが変なとこで完璧主義</div>
           </div>
-              <div class="memberBio">昔はとある島で悪さをしていたが、人間達に追い出され逃げていた所、忍桜郷に迷い込んだ。
-今は刀を練習しいつか来る日に備え自分を磨いている...
-はずだが酒に溺れている日も少なくない。</div>
+              <div class="memberBio">遂に念願叶って舞台に上がった新人の鬼。<br>
+舞台ではガチガチだけど、普段は気さくなので気軽に接されると喜ぶ。<br>
+好きな物は酒、嫌いなものはハリセン</div>
               <div class="memberLinks"><button class="profileMore jsOnly" type="button" data-profile="natuki" aria-haspopup="dialog">物語を読む<span aria-hidden="true">→</span></button><a class="memberX" href="https://x.com/Nata0224_vrc" target="_blank" rel="noopener noreferrer" aria-label="那月(なつき)のXアカウント（新しいタブ）">X ↗</a></div>
             </div>
           </article>
