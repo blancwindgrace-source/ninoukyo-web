@@ -188,7 +188,9 @@ button,input,a { touch-action:manipulation; }
 .memberName { font-family:var(--serif); font-size:24px; font-weight:500; line-height:1.55; margin-top:2px; letter-spacing:.055em; overflow-wrap:anywhere; }
 .castBtn:hover { color:var(--rose-deep); }
 .badges { margin-top:7px; min-height:19px; }
+.badges,.modalBadges { display:flex; align-items:center; flex-wrap:wrap; gap:8px; }
 .badge { display:inline; color:#775566; font-size:11px; line-height:1.8; }
+.badgePerformer { display:inline-block; padding:1px 8px; border:1px solid #b99ba7; background:#ead6de; color:#663649; font-size:10px; line-height:1.6; }
 .memberMeta { margin-top:17px; color:#786671; font-size:12px; line-height:1.9; }
 .memberMeta b { color:#65404f; font-weight:500; }
 .memberBio { color:#6e5c66; font-size:13px; line-height:1.9; margin-top:11px; overflow-wrap:anywhere; }

@@ -23,19 +23,23 @@
     text: normalize([
       card.querySelector('.castBtn').dataset.name,
       card.querySelector('.castBtn').dataset.reading,
-      card.querySelector('.badge').textContent,
+      [...card.querySelectorAll('.badge')].map((badge) => badge.textContent).join(' '),
       card.querySelector('.memberMeta').textContent,
       card.querySelector('.memberBio').textContent,
     ].join(' ')),
   }));
+  function matchesFilter(card, filter) {
+    if (filter === 'performer') return card.dataset.role === 'performer';
+    return filter === 'all' || card.dataset.state === filter;
+  }
   document.querySelectorAll('[data-count]').forEach((node) => {
-    node.textContent = String(cards.filter((card) => node.dataset.count === 'all' || card.dataset.state === node.dataset.count).length);
+    node.textContent = String(cards.filter((card) => matchesFilter(card, node.dataset.count)).length);
   });
   function filterMembers() {
     const terms = normalize(search.value).trim().split(/\s+/).filter(Boolean);
     let visible = 0;
     searchableCards.forEach(({card, text}) => {
-      const matches = (selectedFilter === 'all' || card.dataset.state === selectedFilter)
+      const matches = matchesFilter(card, selectedFilter)
         && terms.every((term) => text.includes(term));
       card.hidden = !matches;
       if (matches) visible += 1;
@@ -91,7 +95,7 @@
     opener = trigger;
     title.textContent = data.name;
     subtitle.textContent = data.reading;
-    badges.textContent = card.querySelector('.badge').textContent;
+    badges.replaceChildren(...[...card.querySelectorAll('.badges .badge')].map((badge) => badge.cloneNode(true)));
     content.replaceChildren(
       card.querySelector('.memberMeta').cloneNode(true),
       card.querySelector('.memberBio').cloneNode(true),

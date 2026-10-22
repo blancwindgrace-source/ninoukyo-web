@@ -52,6 +52,7 @@ FAQは `index.html` の `id="faq"` 内にあります。質問は `dt`、回答�
 - `id="member-識別名"` と、同じカード内のすべての `data-profile="識別名"`。
 - `data-name`・`data-reading`・`data-img`・`data-x`、写真の `src`、名前・読み・種族・紹介文。
 - 現在の住人は `data-state="present"`、別れの記録がある住人は `data-state="memory"`。
+- 演者は `article` に `data-role="performer"` を付け、`badges` 内に `<span class="badge badgePerformer">演者</span>` を追加します。演者の絞り込み・人数表示・検索・詳細プロフィールに反映されます。
 - リンクの `href`、`alt`、`aria-label` も、新しい住人に合わせます。
 
 件数はHTML内のカードから自動計算します。フォントには現在のページで使用する文字を収録しています。追加した漢字が含まれない場合は、端末の日本語フォントで補完されます。
